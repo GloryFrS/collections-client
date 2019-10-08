@@ -9,7 +9,7 @@ import Persik from './panels/Persik';
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
-	const [fetchedUser, setUser] = useState(null);
+	// const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 
 	useEffect(() => {
@@ -23,7 +23,7 @@ const App = () => {
 			
 		});
 		async function fetchData() {
-			console.log('123');
+			
 			
 			// const user = await connect.sendPromise('VKWebAppGetUserInfo');
 			// console.log(user);
@@ -40,7 +40,7 @@ const App = () => {
 
 	return (
 		<View activePanel={activePanel} popout={popout}>
-			<Home id='home' fetchedUser={fetchedUser} go={go} />
+			<Home id='home'  go={go} />
 			<Persik id='persik' go={go} />
 		</View>
 	);
