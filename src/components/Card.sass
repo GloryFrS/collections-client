@@ -1,0 +1,55 @@
+body
+  overflow: hidden
+  background: linear-gradient(90deg, crimson 25%, black, dodgerblue 75%)
+
+.r-hex
+  overflow: hidden
+  display: inline-block
+  margin: 4em 0
+  width: 20em
+  height: 17.32em
+  transform: rotate(-30deg) skewX(30deg)
+  border-radius: .5em
+
+  *
+    display: block
+    overflow: hidden
+    width: inherit
+    height: inherit
+    border-radius: inherit
+
+    &:before
+      display: block
+      overflow: hidden
+      width: inherit
+      height: inherit
+      border-radius: inherit
+
+.r-hex-inner
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg)
+  opacity: .15
+  transition: opacity .75s
+  cursor: pointer
+
+.r-hex:first-child .r-hex-inner:before
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg)
+  background: orange
+  content: ''
+
+.r-hex-inner-2
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg)
+  background: orange
+  content: ''
+
+  &:before
+    margin-top: -1.5em
+    height: 20em
+    transform: skewX(-30deg) rotate(-90deg)
+    background: url(http://images.fineartamerica.com/images-medium-large/sumatran-tiger-cub--panthera-tigris-sumatrae-life-on-white.jpg)
+    background-size: cover
+    line-height: 20em
+    text-align: center
+    content: 'Hello, be a nice kitty...'
+
+.r-hex-inner:hover
+  opacity: 1

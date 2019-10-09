@@ -6,6 +6,7 @@ import Group from '@vkontakte/vkui/dist/components/Group/Group';
 import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
 import Div from '@vkontakte/vkui/dist/components/Div/Div';
 import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
+import Card from "../components/Card";
 
 const Home = ({ id, go, fetchedUser }) => (
 	<Panel id={id}>
@@ -22,7 +23,7 @@ const Home = ({ id, go, fetchedUser }) => (
 
 		<Group title="Navigation Example">
 			<Div>
-			asd
+				<Card/>
 			</Div>
 		</Group>
 	</Panel>
