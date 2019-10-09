@@ -1,15 +1,64 @@
+@import vars
+
 body
   overflow: hidden
-  background: linear-gradient(90deg, crimson 25%, black, dodgerblue 75%)
+
+.card-container
+    display: flex
+    justify-content: center
+    background: $base-bg
+    &:before
+      display: block
+      position: absolute
+      content: ''
+      background-image: url(../img/bg-polygon.png)
+      background-repeat: no-repeat
+      width: 272px
+      height: 335px
+      left: -105px
+      right: 0
+      top: 2em
+      margin: auto
+
+.r-hex-rang, .r-hex-black
+  overflow: hidden
+  display: inline-block
+  margin: 1.3em auto
+  position: absolute
+  width: 344px
+  top: 44px
+  height: 297px
+  transform: rotate(-30deg) skewX(30deg)
+  border-radius: .5em
+  z-index: 5
+
+  *
+    display: block
+    overflow: hidden
+    width: inherit
+    height: inherit
+    border-radius: inherit
+
+    &:before
+      display: block
+      overflow: hidden
+      width: inherit
+      height: inherit
+      border-radius: inherit
+.r-hex-rang
+    width: 357px
+    margin: .9em auto
+    height: 310px
 
 .r-hex
   overflow: hidden
   display: inline-block
-  margin: 4em 0
+  margin: 4.7em 0
   width: 20em
   height: 17.32em
   transform: rotate(-30deg) skewX(30deg)
   border-radius: .5em
+  z-index: 5
 
   *
     display: block
@@ -27,29 +76,64 @@ body
 
 .r-hex-inner
   transform: skewX(-30deg) rotate(60deg) skewX(30deg)
-  opacity: .15
+  opacity: 1
   transition: opacity .75s
   cursor: pointer
 
-.r-hex:first-child .r-hex-inner:before
-  transform: skewX(-30deg) rotate(60deg) skewX(30deg)
-  background: orange
-  content: ''
-
 .r-hex-inner-2
   transform: skewX(-30deg) rotate(60deg) skewX(30deg)
-  background: orange
+  background: black
   content: ''
-
-  &:before
+  img
     margin-top: -1.5em
     height: 20em
     transform: skewX(-30deg) rotate(-90deg)
-    background: url(http://images.fineartamerica.com/images-medium-large/sumatran-tiger-cub--panthera-tigris-sumatrae-life-on-white.jpg)
-    background-size: cover
-    line-height: 20em
-    text-align: center
-    content: 'Hello, be a nice kitty...'
+    &:before
+      margin-top: -1.5em
+      height: 20em
+      transform: skewX(-30deg) rotate(-90deg)
+      line-height: 20em
+      text-align: center
+      content: ''
 
-.r-hex-inner:hover
-  opacity: 1
+.r-hex-inner-3
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg)
+  background: gold
+  content: ''
+  img
+    margin-top: -1.5em
+    height: 20em
+    transform: skewX(-30deg) rotate(-90deg)
+    &:before
+      margin-top: -1.5em
+      height: 20em
+      transform: skewX(-30deg) rotate(-90deg)
+      line-height: 20em
+      text-align: center
+      content: ''
+.cards-back-sides
+    position: absolute
+    z-index: 0
+    top: 18px
+    right: -40px
+    left: 0
+    margin: auto
+    transition: 1s
+    width: 350px
+    height: 350px
+    img
+      position: absolute
+      right: 0
+      &:nth-child(1)
+        right: 0px
+        top: -5px        
+      &:nth-child(2)
+        right: 5px
+        top: 0px
+      &:nth-child(3)
+        right: 10px
+        top: 5px
+      &:nth-child(4)
+        right: 15px
+        top: 10px
+      
