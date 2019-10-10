@@ -6,7 +6,7 @@ import Group from '@vkontakte/vkui/dist/components/Group/Group';
 import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
 import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
 import Card from '../components/Card';
-import img from '../img/Polygon.png'
+import img from '../img/polygon.png'
 
 class Home extends React.Component {
 	render() {
@@ -16,22 +16,22 @@ class Home extends React.Component {
 			collection: 'Лего',
 			img,
 			rang: 2
-		} 
-		return ( 
+		}
+		return (
 			<Panel id={id}>
 				<PanelHeader>Боксы</PanelHeader>
 				{fetchedUser &&
-				<Group title="User Data Fetched with VK Connect">
-					<Cell
-						before={fetchedUser.photo_200 ? <Avatar src={fetchedUser.photo_200}/> : null}
-						description={fetchedUser.city && fetchedUser.city.title ? fetchedUser.city.title : ''}
-					>
-						{`${fetchedUser.first_name} ${fetchedUser.last_name}`}
-					</Cell>
-				</Group>}
-		
+					<Group title="User Data Fetched with VK Connect">
+						<Cell
+							before={fetchedUser.photo_200 ? <Avatar src={fetchedUser.photo_200} /> : null}
+							description={fetchedUser.city && fetchedUser.city.title ? fetchedUser.city.title : ''}
+						>
+							{`${fetchedUser.first_name} ${fetchedUser.last_name}`}
+						</Cell>
+					</Group>}
+
 				<Group>
-					<Card data={cardData}/>
+					<Card data={cardData} />
 				</Group>
 			</Panel>
 		);

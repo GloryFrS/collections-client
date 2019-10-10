@@ -33,7 +33,6 @@ class App extends React.Component {
 			<View activePanel={activePanel}>
 				<Home id='home'  go={this.go} />
 			</View>
-			
 		);
 	}
 }
