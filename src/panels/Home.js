@@ -5,7 +5,7 @@ import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader
 import Group from '@vkontakte/vkui/dist/components/Group/Group';
 import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
 import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
-import Card from '../components/Card.jsx';
+import Card from '../components/Card';
 import img from '../img/Polygon.png'
 
 class Home extends React.Component {
