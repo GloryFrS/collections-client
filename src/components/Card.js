@@ -2,7 +2,7 @@ import React from 'react';
 import backside from '../img/back-side.png';
 import BackSides from "./items/BackSides";
 import '../components/Card.scss';
-import '../components/rangs.css';
+// import '../styles/rangs.css';
 
 class Card extends React.Component {
   constructor(props) {

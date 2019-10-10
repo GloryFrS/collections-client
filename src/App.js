@@ -3,6 +3,7 @@ import connect from '@vkontakte/vk-connect';
 import View from '@vkontakte/vkui/dist/components/View/View';
 import Home from './panels/Home';
 import '@vkontakte/vkui/dist/vkui.css';
+import './styles/main.scss';
 
 class App extends React.Component {
 	constructor(props) {
