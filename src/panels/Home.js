@@ -8,24 +8,35 @@ import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
 import Card from '../components/Card.jsx';
 import img from '../img/Polygon.png'
 
-const Home = ({ id, go, fetchedUser }) => (
-	<Panel id={id}>
-		<PanelHeader>Боксы</PanelHeader>
-		{fetchedUser &&
-		<Group title="User Data Fetched with VK Connect">
-			<Cell
-				before={fetchedUser.photo_200 ? <Avatar src={fetchedUser.photo_200}/> : null}
-				description={fetchedUser.city && fetchedUser.city.title ? fetchedUser.city.title : ''}
-			>
-				{`${fetchedUser.first_name} ${fetchedUser.last_name}`}
-			</Cell>
-		</Group>}
-
-		<Group>
-			<Card img={img} rang={2}/>
-		</Group>
-	</Panel>
-);
+class Home extends React.Component {
+	render() {
+		const { id, fetchedUser } = this.props;
+		const cardData = {
+			title: 'Легендарный Гарри Поттер',
+			collection: 'Лего',
+			img,
+			rang: 2
+		} 
+		return ( 
+			<Panel id={id}>
+				<PanelHeader>Боксы</PanelHeader>
+				{fetchedUser &&
+				<Group title="User Data Fetched with VK Connect">
+					<Cell
+						before={fetchedUser.photo_200 ? <Avatar src={fetchedUser.photo_200}/> : null}
+						description={fetchedUser.city && fetchedUser.city.title ? fetchedUser.city.title : ''}
+					>
+						{`${fetchedUser.first_name} ${fetchedUser.last_name}`}
+					</Cell>
+				</Group>}
+		
+				<Group>
+					<Card data={cardData}/>
+				</Group>
+			</Panel>
+		);
+	}
+}
 
 Home.propTypes = {
 	id: PropTypes.string.isRequired,

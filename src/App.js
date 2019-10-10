@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import connect from '@vkontakte/vk-connect';
 import View from '@vkontakte/vkui/dist/components/View/View';
-import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner';
 import '@vkontakte/vkui/dist/vkui.css';
 
 import Home from './panels/Home';
-import Persik from './panels/Persik';
 
-const App = () => {
-	const [activePanel, setActivePanel] = useState('home');
-	// const [fetchedUser, setUser] = useState(null);
-	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
-
-	useEffect(() => {
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			activePanel: 'home'
+		};
+	}
+	componentDidMount() {
 		connect.subscribe(({ detail: { type, data }}) => {
 			if (type === 'VKWebAppUpdateConfig') {
 				const schemeAttribute = document.createAttribute('scheme');
@@ -20,31 +20,22 @@ const App = () => {
 				document.body.attributes.setNamedItem(schemeAttribute);
 			}
 			console.log(type);
-			
 		});
-		async function fetchData() {
-			
-			
-			// const user = await connect.sendPromise('VKWebAppGetUserInfo');
-			// console.log(user);
-			
-			// setUser(user);
-			setPopout(null);
-		}
-		fetchData();
-	}, []);
-
-	const go = e => {
-		setActivePanel(e.currentTarget.dataset.to);
 	};
-
-	return (
-		<View activePanel={activePanel} popout={popout}>
-			<Home id='home'  go={go} />
-			<Persik id='persik' go={go} />
-		</View>
-	);
+	
+	go = e => {
+		this.setState({ activePanel: e.currentTarget.dataset.to });
+	};
+	
+	render() {
+		const { activePanel } = this.state;
+		return (
+			<View activePanel={activePanel}>
+				<Home id='home'  go={this.go} />
+			</View>
+			
+		);
+	}
 }
 
 export default App;
-
