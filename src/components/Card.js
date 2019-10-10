@@ -23,18 +23,18 @@ class Card extends React.Component {
         <div className='card-container'>
           <div className='r-hex-rang'>
             <div className='r-hex-inner'>
-              <div className={`r-hex-inner-3 ${rangColor}`}></div>
+              <div className={`r-hex-inner-rang ${rangColor}`}></div>
             </div>
           </div>
           <div className='r-hex-black'>
             <div className='r-hex-inner'>
-              <div className='r-hex-inner-2'></div>
+              <div className='r-hex-inner-border'></div>
             </div>
           </div>
           <span className="card-points">x2</span>
           <div className='r-hex'>
             <div className='r-hex-inner'>
-              <div className='r-hex-inner-2'>
+              <div className='r-hex-inner-border'>
                 <img src={img} alt="" />
               </div>
             </div>
@@ -44,7 +44,7 @@ class Card extends React.Component {
             <p>Коллекция: {collection}</p>
           </div>
           <BackSides numTimes={count}>
-            {(index) => <img key={index} src={backside} alt="" />}
+            {(index) => <img key={index} className={`back-side-${index}`} src={backside} alt="" />}
           </BackSides>
         </div>
       </>

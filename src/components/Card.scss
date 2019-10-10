@@ -111,7 +111,7 @@ body {
   cursor: pointer;
 }
 
-.r-hex-inner-2 {
+.r-hex-inner-border {
   transform: skewX(-30deg) rotate(60deg) skewX(30deg);
   background: black;
   content: "";
@@ -132,7 +132,7 @@ body {
   }
 }
 
-.r-hex-inner-3 {
+.r-hex-inner-rang {
   transform: skewX(-30deg) rotate(60deg) skewX(30deg);
   background: gold;
   content: "";
@@ -163,30 +163,25 @@ body {
   transition: 1s;
   width: 350px;
   height: 350px;
-
   img {
     position: absolute;
     right: 0;
-
-    &:nth-child(1) {
-      right: 0px;
-      top: -5px;
-    }
-
-    &:nth-child(2) {
-      right: 5px;
-      top: 0px;
-    }
-
-    &:nth-child(3) {
-      right: 10px;
-      top: 5px;
-    }
-
-    &:nth-child(4) {
-      right: 15px;
-      top: 10px;
-    }
+  }
+  .back-side-0 {
+    right: 0px;
+    top: -5px;
+  }
+  .back-side-1 {
+    right: 5px;
+    top: 0px;
+  }
+  .back-side-2 {
+    right: 10px;
+    top: 5px;
+  }
+  .back-side-3 {
+    right: 15px;
+    top: 10px;
   }
 }
 
