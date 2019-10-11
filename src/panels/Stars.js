@@ -3,6 +3,7 @@ import star from '../img/star.svg';
 import '../style/stars.scss';
 
 const Stars = () => {
+  
   return (
     <div className = 'stars'>
       <img className = 'star1' src={star} />
