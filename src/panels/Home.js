@@ -11,6 +11,7 @@ class Home extends React.Component {
     this.state = {
       img: null,
       bImg: null,
+      fImg: null,
       open: false,
       pack: 5,
       rotate: false,
@@ -75,8 +76,8 @@ class Home extends React.Component {
         const theCSSprop = window.getComputedStyle(card, null)
           .getPropertyValue('z-index');
 
-        if (theCSSprop === '1000') {
-          this.setState({ img: frontImg.src, rotate: false });
+        if (theCSSprop === '100') {
+          this.setState({ img: frontImg.src, rotate: false, fImg: frontImg });
           card.style.animation = 'flipScaleDownVer 500ms ease-out both';
           clearInterval(interval);
         }
@@ -89,6 +90,24 @@ class Home extends React.Component {
     const card = document.querySelector('.card');
 
     card.style.animation = 'destroyCard 1s linear both';
+    const interval = setInterval(() => {
+      const theCSSprop = window.getComputedStyle(card, null)
+        .getPropertyValue('opacity');
+
+      if (theCSSprop === '0') {
+        card.style.display = 'none';
+        card.style.animation = '';
+        this.setState({ img: this.state.bImg.src, pack: this.state.pack-1,open: false });
+        this.pullCard();
+        clearInterval(interval);
+      }
+    }, 100)
+  }
+
+  destroyCardTest = () => {
+    const card = document.querySelector('.card');
+
+    card.style.animation = 'destroyCardTest .5s linear both';
     const interval = setInterval(() => {
       const theCSSprop = window.getComputedStyle(card, null)
         .getPropertyValue('opacity');
@@ -127,7 +146,7 @@ class Home extends React.Component {
       <Panel id={this.props.id}>
       <div>
         {(this.state.open && !this.state.rotate)?
-          <div className="btn" onClick={this.destroyCard}>spray</div>
+          <div className="btn" onClick={this.destroyCardTest}>spray</div>
         :
           ''
         }
