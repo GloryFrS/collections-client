@@ -1,15 +1,16 @@
 import React from 'react';
-import star from '../img/star.svg';
+import StarImg from '../img/star.svg';
 import '../style/stars.scss';
 
 const Stars = () => {
-  
+  let starsArr = ['star1','star2','star3','star4'];
   return (
     <div className = 'stars'>
-      <img className = 'star1' src={star} />
-      <img className = 'star2' src={star} />
-      <img className = 'star3' src={star} />
-      <img className = 'star4' src={star} />
+      {
+        starsArr.map((classStar) => 
+        <img className = {classStar} src={StarImg} />
+        )
+      }
     </div>
   )
 }

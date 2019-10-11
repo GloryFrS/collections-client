@@ -30,8 +30,9 @@ class Home extends React.Component {
     chestImg.onload = () => {
       chest.setAttribute('style', `animation:chestAnim 2s ease-out both; background: url(${chestImg.src}) center no-repeat`);
       backImg.onload = () => {
-        let interval = setInterval(() => {
-          const theCSSprop = window.getComputedStyle(chest, null).getPropertyValue('opacity');
+        const interval = setInterval(() => {
+          const theCSSprop = window.getComputedStyle(chest, null)
+            .getPropertyValue('opacity');
           
           if (theCSSprop === '0') {
             chest.remove();
@@ -54,7 +55,8 @@ class Home extends React.Component {
 
     stack.style.right = `${translateStack}px`;
     const interval = setInterval(() => {
-      const theCSSprop = window.getComputedStyle(stack, null).getPropertyValue('right');
+      const theCSSprop = window.getComputedStyle(stack, null)
+        .getPropertyValue('right');
 
       if (theCSSprop === `${translateStack}px`) {
         card.style.display = 'inline-block';
@@ -69,8 +71,9 @@ class Home extends React.Component {
     this.setState({ open: true, rotate: true });
     card.style.animation = 'flipScaleUpVer 500ms ease-in both';
     frontImg.onload = () => {
-      let interval = setInterval(() => {
-        const theCSSprop = window.getComputedStyle(card, null).getPropertyValue('z-index');
+      const interval = setInterval(() => {
+        const theCSSprop = window.getComputedStyle(card, null)
+          .getPropertyValue('z-index');
 
         if (theCSSprop === '1000') {
           this.setState({ img: frontImg.src, rotate: false });
@@ -86,8 +89,9 @@ class Home extends React.Component {
     const card = document.querySelector('.card');
 
     card.style.animation = 'destroyCard 1s linear both';
-    let interval = setInterval(() => {
-      const theCSSprop = window.getComputedStyle(card, null).getPropertyValue('opacity');
+    const interval = setInterval(() => {
+      const theCSSprop = window.getComputedStyle(card, null)
+        .getPropertyValue('opacity');
 
       if (theCSSprop === '0') {
         card.style.display = 'none';
@@ -103,8 +107,9 @@ class Home extends React.Component {
     const card = document.querySelector('.card');
 
     card.style.animation = 'takeCard 500ms ease-in both';
-    let interval = setInterval(() => {
-      const theCSSprop = window.getComputedStyle(card, null).getPropertyValue('opacity');
+    const interval = setInterval(() => {
+      const theCSSprop = window.getComputedStyle(card, null)
+        .getPropertyValue('opacity');
 
       if (theCSSprop === '0') {
         card.style.animation = '';
@@ -119,9 +124,7 @@ class Home extends React.Component {
   render() {
 
     return (
-      <Panel id={
-        this.props.id
-      }>
+      <Panel id={this.props.id}>
       <div>
         {(this.state.open && !this.state.rotate)?
           <div className="btn" onClick={this.destroyCard}>spray</div>
