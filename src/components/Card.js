@@ -4,7 +4,6 @@ import BackSides from "./items/BackSides";
 import '../components/Card.scss';
 
 class Card extends React.Component {
-  
   constructor(props) {
     super(props);
     this.state = {
@@ -22,32 +21,32 @@ class Card extends React.Component {
 
     return (
       <div className='card-container'>
-          <div className='r-hex-rang'>
-            <div className='r-hex-inner'>
-              <div className={`r-hex-inner-rang ${rangColor}`}></div>
-            </div>
+        <div className='r-hex-rang'>
+          <div className='r-hex-inner'>
+            <div className={`r-hex-inner-rang ${rangColor}`}></div>
           </div>
-          <div className='r-hex-black'>
-            <div className='r-hex-inner'>
-              <div className='r-hex-inner-border'></div>
-            </div>
-          </div>
-          <span className="card-points">x2</span>
-          <div className='r-hex'>
-            <div className='r-hex-inner'>
-              <div className='r-hex-inner-border'>
-                <img src={img} alt="" />
-              </div>
-            </div>
-          </div>
-          <div className={rangStyle}>
-            <p>{`${rangTitle[rang]} ${title}`}</p>
-            <p>Коллекция: {collection}</p>
-          </div>
-          <BackSides numTimes={count}>
-            {(index) => <img key={index} className={`back-side-${index}`} src={backside} alt="" />}
-          </BackSides>
         </div>
+        <div className='r-hex-black'>
+          <div className='r-hex-inner'>
+            <div className='r-hex-inner-border'></div>
+          </div>
+        </div>
+        <span className="card-points">x2</span>
+        <div className='r-hex'>
+          <div className='r-hex-inner'>
+            <div className='r-hex-inner-border'>
+              <img src={img} alt="" />
+            </div>
+          </div>
+        </div>
+        <div className={rangStyle}>
+          <p>{`${rangTitle[rang]} ${title}`}</p>
+          <p>Коллекция: {collection}</p>
+        </div>
+        <BackSides numTimes={count}>
+          {(index) => <img key={index} className={`back-side-${index}`} src={backside} alt="" />}
+        </BackSides>
+      </div>
     );
   }
 }

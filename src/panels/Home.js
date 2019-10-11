@@ -5,14 +5,13 @@ import Card from '../components/Card';
 import img from '../img/polygon.png';
 
 class Home extends React.Component {
-  
   render() {
     const { id, fetchedUser } = this.props;
     const cardData = {
       title: 'Гарри Поттер',
       collection: 'Лего',
       img,
-      rang: 1,
+      rang: 0,
     }
 
     return (
