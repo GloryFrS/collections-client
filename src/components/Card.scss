@@ -63,14 +63,6 @@ body {
   z-index: 5;
 }
 
-.r-hex-rang *, .r-hex-black *, .r-hex-rang *:before, .r-hex-black *:before {
-  display: block;
-  overflow: hidden;
-  width: inherit;
-  height: inherit;
-  border-radius: inherit;
-}
-
 .r-hex-rang {
   width: 357px;
   margin: 0.9em auto;
@@ -87,24 +79,17 @@ body {
   border-radius: 0.5em;
   z-index: 5;
 
-  * {
+  &:before {
     display: block;
     overflow: hidden;
     width: inherit;
     height: inherit;
     border-radius: inherit;
-
-    &:before {
-      display: block;
-      overflow: hidden;
-      width: inherit;
-      height: inherit;
-      border-radius: inherit;
-    }
-  }
+  }  
 }
 
 .r-hex-inner {
+  @include hexStyle;
   transform: skewX(-30deg) rotate(60deg) skewX(30deg);
   opacity: 1;
   transition: opacity 0.75s;
@@ -112,6 +97,7 @@ body {
 }
 
 .r-hex-inner-border {
+  @include hexStyle;
   transform: skewX(-30deg) rotate(60deg) skewX(30deg);
   background: black;
   content: "";
@@ -133,6 +119,7 @@ body {
 }
 
 .r-hex-inner-rang {
+  @include hexStyle;
   transform: skewX(-30deg) rotate(60deg) skewX(30deg);
   background: gold;
   content: "";
