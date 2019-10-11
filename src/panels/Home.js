@@ -9,8 +9,8 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      img: '',
-      bImg: '',
+      img: null,
+      bImg: null,
       open: false,
       pack: 5,
       rotate: false,
@@ -18,22 +18,23 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    let card = document.querySelector(".card");
-    let chest = document.querySelector(".chest");
-    let stack = document.querySelector(".stack");
-    let chestImg = new Image();
-    let backImg = new Image();
+    const card = document.querySelector(".card");
+    const chest = document.querySelector(".chest");
+    const stack = document.querySelector(".stack");
+    const chestImg = new Image();
+    const backImg = new Image();
+    const translateStack =-20 - (5* this.state.pack);
     card.setAttribute('style', 'opacity: 0; display: none; transition: opacity .5s ; ');
-    stack.setAttribute('style', `opacity: 0; display: none; right: ${-20 - (5* this.state.pack)}px `);
+    stack.setAttribute('style', `opacity: 0; display: none; right: ${translateStack}px `);
     chestImg.onload = () => {
     chest.setAttribute('style', `animation:chestAnim 2s ease-out both; background: url(${chestImg.src}) center no-repeat`);
     backImg.onload = () => {
       let interval = setInterval(() => {
-        var theCSSprop = window.getComputedStyle(chest, null).getPropertyValue("opacity");
+        const theCSSprop = window.getComputedStyle(chest, null).getPropertyValue("opacity");
         if (theCSSprop === '0') {
           chest.remove();
           card.setAttribute('style', 'opacity: 1; display: inline-block; transition: opacity .5s;');
-          stack.setAttribute('style', `opacity: 1; display: inline-block; right: ${-20 - (5* this.state.pack)}px`);
+          stack.setAttribute('style', `opacity: 1; display: inline-block; right: ${translateStack}px`);
           this.setState({ img: backImg.src, bImg: backImg });
           clearInterval(interval);
         }
@@ -45,11 +46,11 @@ class Home extends React.Component {
   }
 
   pullCard = () => {
-    let stack = document.querySelector(".stack");
-    let card = document.querySelector(".card");
+    const stack = document.querySelector(".stack");
+    const card = document.querySelector(".card");
     stack.style.right = `${-20 - (5* this.state.pack)}px`;
-    let interval = setInterval(() => {
-      var theCSSprop = window.getComputedStyle(stack, null).getPropertyValue("right");
+    const interval = setInterval(() => {
+      const theCSSprop = window.getComputedStyle(stack, null).getPropertyValue("right");
       if (theCSSprop === `${-20 - (5* this.state.pack)}px`) {
         card.style.display = "inline-block";
         clearInterval(interval);
@@ -58,12 +59,12 @@ class Home extends React.Component {
   }
   openCard = () => {
     this.setState({ open: true, rotate: true });
-    let card = document.querySelector(".card");
-    let frontImg = new Image();
+    const card = document.querySelector(".card");
+    const frontImg = new Image();
     card.style.animation = "flipScaleUpVer 500ms ease-in both";
     frontImg.onload = () => {
       let interval = setInterval(() => {
-        let theCSSprop = window.getComputedStyle(card, null).getPropertyValue("z-index");
+        const theCSSprop = window.getComputedStyle(card, null).getPropertyValue("z-index");
         if (theCSSprop === '1000') {
           this.setState({ img: frontImg.src, rotate: false });
           card.style.animation = "flipScaleDownVer 500ms ease-out both";
@@ -75,10 +76,10 @@ class Home extends React.Component {
   }
 
   destroyCard = () => {
-    var card = document.querySelector(".card");
+    const card = document.querySelector(".card");
     card.style.animation = "destroyCard 1s linear both";
     let interval = setInterval(() => {
-      var theCSSprop = window.getComputedStyle(card, null).getPropertyValue("opacity");
+      const theCSSprop = window.getComputedStyle(card, null).getPropertyValue("opacity");
       if (theCSSprop === '0') {
         card.style.display = "none";
         card.style.animation = "";
@@ -90,10 +91,10 @@ class Home extends React.Component {
   }
 
   takeCard = () => {
-    let card = document.querySelector(".card");
+    const card = document.querySelector(".card");
     card.style.animation = "takeCard 500ms ease-in both";
     let interval = setInterval(() => {
-      let theCSSprop = window.getComputedStyle(card, null).getPropertyValue("opacity");
+      const theCSSprop = window.getComputedStyle(card, null).getPropertyValue("opacity");
       if (theCSSprop === '0') {
         card.style.animation = "";
         card.style.display = "none";

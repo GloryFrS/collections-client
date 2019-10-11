@@ -6,9 +6,9 @@ import Home from './panels/Home';
 
 const App = () => {
   return (
- <View  activePanel={'home'}>
-   <Home id='home' />
- </View>
+    <View  activePanel={'home'}>
+      <Home id='home' />
+    </View>
   );
 }
 
