@@ -7,9 +7,7 @@ const Stars = () => {
   return (
     <div className = 'stars'>
       {
-        starsArr.map((classStar) => 
-        <img className = {classStar} src={StarImg} />
-        )
+        starsArr.map((classStar) => <img className = {classStar} src={StarImg} />)
       }
     </div>
   )

@@ -53,8 +53,6 @@ class Home extends React.Component {
     const stack = document.querySelector('.stack');
     const card = document.querySelector('.card');
     const translateStack =-20 - (5* this.state.pack);
-
-    stack.style.right = `${translateStack}px`;
     const interval = setInterval(() => {
       const theCSSprop = window.getComputedStyle(stack, null)
         .getPropertyValue('right');
@@ -64,6 +62,9 @@ class Home extends React.Component {
         clearInterval(interval);
       }
     }, 100)
+    
+    stack.style.right = `${translateStack}px`;
+
   }
   openCard = () => {
     const card = document.querySelector('.card');
@@ -88,8 +89,6 @@ class Home extends React.Component {
 
   destroyCard = () => {
     const card = document.querySelector('.card');
-
-    card.style.animation = 'destroyCard 1s linear both';
     const interval = setInterval(() => {
       const theCSSprop = window.getComputedStyle(card, null)
         .getPropertyValue('opacity');
@@ -97,17 +96,18 @@ class Home extends React.Component {
       if (theCSSprop === '0') {
         card.style.display = 'none';
         card.style.animation = '';
-        this.setState({ img: this.state.bImg.src, pack: this.state.pack-1,open: false });
+        this.setState({ img: this.state.bImg.src, pack: this.state.pack - 1,open: false });
         this.pullCard();
         clearInterval(interval);
       }
     }, 100)
+    
+    card.style.animation = 'destroyCard 1s linear both';
+
   }
 
   destroyCardTest = () => {
     const card = document.querySelector('.card');
-
-    card.style.animation = 'destroyCardTest .5s linear both';
     const interval = setInterval(() => {
       const theCSSprop = window.getComputedStyle(card, null)
         .getPropertyValue('opacity');
@@ -120,12 +120,13 @@ class Home extends React.Component {
         clearInterval(interval);
       }
     }, 100)
+    
+    card.style.animation = 'destroyCardTest .5s linear both';
+
   }
 
   takeCard = () => {
     const card = document.querySelector('.card');
-
-    card.style.animation = 'takeCard 500ms ease-in both';
     const interval = setInterval(() => {
       const theCSSprop = window.getComputedStyle(card, null)
         .getPropertyValue('opacity');
@@ -138,6 +139,9 @@ class Home extends React.Component {
         clearInterval(interval);
       }
     }, 100)
+    
+    card.style.animation = 'takeCard 500ms ease-in both';
+
   }
 
   render() {
@@ -145,19 +149,16 @@ class Home extends React.Component {
     return (
       <Panel id={this.props.id}>
       <div>
-        {(this.state.open && !this.state.rotate)?
-          <div className="btn" onClick={this.destroyCardTest}>spray</div>
-        :
-          ''
+        {(this.state.open && !this.state.rotate) 
+          ?  <div className="btn" onClick={this.destroyCardTest}>spray</div>
+          : '' 
         }
       </div>
-        <div className="chest">
-        </div>
-        <div className="stack"></div>
+        <div className="chest"/>
+        <div className="stack"/>
         <div className="card" onClick={ this.state.open  ?  this.state.rotate ? () =>{} : this.takeCard : this.openCard}>
           <Stars />
-          <div
-            className="r-hex">
+          <div className="r-hex">
             <div className="r-hex-inner">
               <div className="r-hex-inner-next" >
                 <img className="img" src={this.state.img} />
