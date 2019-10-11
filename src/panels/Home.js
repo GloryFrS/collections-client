@@ -24,7 +24,7 @@ class Home extends React.Component {
     const stack = document.querySelector('.stack');
     const chestImg = new Image();
     const backImg = new Image();
-    const translateStack =-20 - (5* this.state.pack);
+    const translateStack = - 20 - (5 * this.state.pack);
 
     card.setAttribute('style', 'opacity: 0; display: none; transition: opacity .5s ; ');
     stack.setAttribute('style', `opacity: 0; display: none; right: ${translateStack}px `);
@@ -52,7 +52,7 @@ class Home extends React.Component {
   pullCard = () => {
     const stack = document.querySelector('.stack');
     const card = document.querySelector('.card');
-    const translateStack =-20 - (5* this.state.pack);
+    const translateStack = - 20 - (5 * this.state.pack);
     const interval = setInterval(() => {
       const theCSSprop = window.getComputedStyle(stack, null)
         .getPropertyValue('right');
@@ -95,7 +95,7 @@ class Home extends React.Component {
       if (theCSSprop === '0') {
         card.style.display = 'none';
         card.style.animation = '';
-        this.setState({ img: this.state.bImg.src, pack: this.state.pack-1,open: false });
+        this.setState({ img: this.state.bImg.src, pack: this.state.pack - 1,open: false });
         this.pullCard();
         clearInterval(interval);
       }
@@ -113,7 +113,7 @@ class Home extends React.Component {
       if (theCSSprop === '0') {
         card.style.animation = '';
         card.style.display = 'none';
-        this.setState({ img: this.state.bImg.src, pack: this.state.pack-1,open: false });
+        this.setState({ img: this.state.bImg.src, pack: this.state.pack - 1,open: false });
         this.pullCard();
         clearInterval(interval);
       }
@@ -127,7 +127,8 @@ class Home extends React.Component {
     return (
       <Panel id={this.props.id}>
       <div>
-        {(this.state.open && !this.state.rotate) 
+        {
+          (this.state.open && !this.state.rotate) 
           ? <div className="btn" onClick={this.destroyCard}>destroy</div>
           : '' 
         }
