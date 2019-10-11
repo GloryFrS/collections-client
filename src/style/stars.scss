@@ -1,0 +1,81 @@
+.stars {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  .star1 {
+    position: absolute;
+    animation: starMove1 3s infinite linear both, stop 3s infinite ease-in both;
+  }
+  .star2 {
+    position: absolute;
+    animation: starMove2 2s infinite linear both, stop 2s infinite ease-in both;
+  }
+  .star3 {
+    position: absolute;
+    animation: starMove3 4s infinite linear both, stop 4s infinite ease-in both;
+  }
+  .star4 {
+    position: absolute;
+    animation: starMove4 2s infinite linear both, stop 2s infinite ease-in both;
+  }
+}
+@keyframes starMove1 {
+  from {
+    transform: scale(0.5) ;
+    right: 5px;
+    top: 0px;
+  }
+  to {
+    transform: scale(0.7) ;
+    right: 10px;
+    top: -50px;
+  }
+}
+
+@keyframes starMove2 {
+  from {
+    transform: scale(0.6) ;
+    right: 0px;
+    top: 0px;
+  }
+  to {
+    transform: scale(0.2) ;
+    right: -10px;
+    top: -50px;
+  }
+}
+@keyframes starMove3 {
+  from {
+    transform: scale(0.5) ;
+    right: 10px;
+    top: 0px;
+  }
+  to {
+    transform: scale(0.3) ;
+    right: 20px;
+    top: -50px;
+  }
+}
+@keyframes starMove4 {
+  from {
+    transform: scale(0.5) ;
+    right: 0px;
+    top: 0px;
+  }
+  to {
+    transform: scale(0.5) ;
+    right: 10px;
+    top: -50px;
+  }
+}
+@keyframes stop {
+  0% {
+    opacity: 0 ;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0 ;
+  }
+}

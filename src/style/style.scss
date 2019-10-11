@@ -1,0 +1,144 @@
+@keyframes flipScaleUpVer {
+  0% {
+    transform: scale(1) rotateY(0);
+    z-index: 10;
+  }
+  100% {
+    transform: scale(1.1) rotateY(90deg);
+    z-index: 1000;
+  }
+}
+@keyframes flipScaleDownVer {
+  0% {
+    transform: scale(1.1) rotateY(90deg);
+  }
+  100% {
+    transform: scale(1) rotateY(180deg);
+  }
+}
+@keyframes chestAnim {
+  0% {
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(2);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@keyframes destroyCard {
+  0% {
+    transform: scale(1) rotateY(180deg);
+  }
+  50% {
+    transform: scale(0) rotateY(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(10) rotateY(180deg);
+    opacity: 0;
+  }
+}
+@keyframes takeCard {
+  0% {
+    transform: scale(1) rotateY(180deg) translateY(0);
+  }
+  100% {
+    transform: scale(0.8) rotateY(180deg) translateY(-600%);
+    opacity: 0;
+  }
+}
+.chest {
+  position: absolute;
+  display: inline-block;
+  width: 20em;
+  height: 17.32em;
+  left: calc(50% - 10em);
+  top: 200px;
+  background: rgba(0,0,0,0);
+  background-size: cover;
+}
+.btn {
+  position: "relative";
+  z-index: 10001;
+  width: 10em;
+  height: 5em;
+  background: gold;
+  border: 1px solid black;
+}
+.card {
+  position: absolute;
+  display: inline-block;
+  left: calc(50% - 10em);
+  top: 200px;
+  width: 20em;
+  height: 17.32em;
+}
+.stack {
+  background: red;
+  position: absolute;
+  z-index: 0;
+  top: 180px;
+  left: 0;
+  margin: auto;
+  transition: .5s;
+  width: 300px;
+  height: 300px;
+}
+* {
+  margin: 0;
+}
+body {
+  overflow: hidden;
+}
+@mixin hexStyle{
+  display: block;
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  &:before {
+    display: block;
+    overflow: hidden;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+  }
+}
+.r-hex {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  margin: 4em 0;
+  width: 20em;
+  height: 17.32em;
+  transform: rotate(-30deg) skewX(30deg);
+  border-radius: .5em;
+}
+.r-hex-inner {
+  @include hexStyle;
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+  cursor: pointer;
+}
+.r-hex-inner-next {
+  @include hexStyle;
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+  background: orange;
+}
+.img {
+  @include hexStyle;
+  margin-top: -1.5em;
+  height: 20em;
+  transform: skewX(-30deg) rotate(-90deg);
+  line-height: 20em;
+  text-align: center;
+  content: '';
+  z-index: 1000;
+}
