@@ -1,6 +1,6 @@
 import React from 'react';
 import connect from '@vkontakte/vk-connect';
-import View from '@vkontakte/vkui/dist/components/View/View';
+import { View } from '@vkontakte/vkui/';
 import Home from './panels/Home';
 import '@vkontakte/vkui/dist/vkui.css';
 import './styles/main.scss';

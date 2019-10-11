@@ -1,7 +1,7 @@
 import React from 'react';
 
 const BackSides = (props) => {
-  let items = [];
+  const items = [];
   for (let i = 0; i < props.numTimes; i++) {
     items.push(props.children(i));
   }

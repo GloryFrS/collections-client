@@ -1,5 +1,10 @@
 @import '../styles/vars';
 
+body {
+  --header_background: #0A111B;
+  --background_page: #0A111B;
+}
+
 .rang-gold {
   background: linear-gradient($gold-gradient);
 }
@@ -9,7 +14,4 @@
 .rang-blue {
   background: linear-gradient($blue-gradient);
 }
-body {
-  --header_background: #0A111B;
-  --background_page: #0A111B;
-}
+
