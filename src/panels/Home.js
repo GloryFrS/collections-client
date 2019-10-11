@@ -92,6 +92,7 @@ class Home extends React.Component {
     const interval = setInterval(() => {
       const theCSSprop = window.getComputedStyle(card, null)
         .getPropertyValue('opacity');
+
       if (theCSSprop === '0') {
         card.style.display = 'none';
         card.style.animation = '';
@@ -123,7 +124,6 @@ class Home extends React.Component {
   }
 
   render() {
-
     return (
       <Panel id={this.props.id}>
       <div>

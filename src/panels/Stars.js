@@ -4,6 +4,7 @@ import '../style/stars.scss';
 
 const Stars = () => {
   let starsArr = ['star1','star2','star3','star4'];
+  
   return (
     <div className = 'stars'>
       {
