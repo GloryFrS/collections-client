@@ -3,13 +3,14 @@
 body {
   --header_background: #0A111B;
   --background_page: #0A111B;
+  --background_content: #0A111B;
 }
 
 .rang-gold {
   background: linear-gradient($gold-gradient);
 }
 .rang-silver {
-  background: linear-gradient($silver-gradient);
+  background: linear-gradient($silver-gradient);  
 }
 .rang-blue {
   background: linear-gradient($blue-gradient);

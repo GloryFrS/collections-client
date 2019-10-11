@@ -2,17 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Panel, PanelHeader, Group, Cell, Avatar } from '@vkontakte/vkui/';
 import Card from '../components/Card';
-import img from '../img/polygon.png'
+import img from '../img/polygon.png';
 
 class Home extends React.Component {
+  
   render() {
     const { id, fetchedUser } = this.props;
     const cardData = {
-      title: 'Легендарный Гарри Поттер',
+      title: 'Гарри Поттер',
       collection: 'Лего',
       img,
-      rang: 2
+      rang: 1,
     }
+
     return (
       <Panel id={id}>
         <PanelHeader>Боксы</PanelHeader>
@@ -25,7 +27,6 @@ class Home extends React.Component {
               {`${fetchedUser.first_name} ${fetchedUser.last_name}`}
             </Cell>
           </Group>}
-
         <Group>
           <Card data={cardData} />
         </Group>

@@ -8,6 +8,7 @@ body {
   display: flex;
   justify-content: center;
   background: $base-bg;
+  position: relative;
 
   &:before {
     display: block;
@@ -17,10 +18,14 @@ body {
     background-repeat: no-repeat;
     width: 272px;
     height: 335px;
-    left: -105px;
+    left: -83px;
     right: 0;
     top: 2em;
     margin: auto;
+    @media screen and (max-width: 320px) {
+      background-size: 200px;
+      left: -26px;  
+    } 
   }
   .card-label {
     position: absolute;
@@ -28,7 +33,7 @@ body {
     bottom: 4em;
     padding: 10px;
     text-align: center;
-    width: 257px;
+    width: 68%;
     border-radius: 10px;
     p {
       color: #fff;
@@ -36,6 +41,13 @@ body {
       margin-bottom: 5px;
       &:nth-child(1) {
         font-weight: bold;
+      }
+    }
+  }
+  .card-label {
+    &.rang-silver {
+      p {
+        color: #494949;
       }
     }
   }
@@ -61,12 +73,20 @@ body {
   transform: rotate(-30deg) skewX(30deg);
   border-radius: 0.5em;
   z-index: 5;
+  @media screen and (max-width: 320px) {
+    width: 255px;
+    height: 220px
+  }  
 }
 
 .r-hex-rang {
   width: 357px;
   margin: 0.9em auto;
   height: 310px;
+  @media screen and (max-width: 320px) {
+    width: 268px;
+    height: 234px;
+  }
 }
 
 .r-hex {
@@ -78,14 +98,17 @@ body {
   transform: rotate(-30deg) skewX(30deg);
   border-radius: 0.5em;
   z-index: 5;
-
   &:before {
     display: block;
     overflow: hidden;
     width: inherit;
     height: inherit;
     border-radius: inherit;
-  }  
+  }
+  @media screen and (max-width: 320px) {
+    width: 227px;
+    height: 200px;
+  }
 }
 
 .r-hex-inner {
@@ -104,8 +127,11 @@ body {
 
   img {
     margin-top: -1.5em;
-    height: 20em;
+    height: 21em;
     transform: skewX(-30deg) rotate(-90deg);
+    @media screen and (max-width: 320px) {
+      height: 15.5em;
+    }
 
     &:before {
       margin-top: -1.5em;
@@ -150,9 +176,17 @@ body {
   transition: 1s;
   width: 350px;
   height: 350px;
+  @media screen and (max-width: 320px) {
+    top: 27px;
+    right: 0;
+    left: -48px;
+  }
   img {
     position: absolute;
     right: 0;
+    @media screen and (max-width: 320px) {
+      width: 230px;
+    }
   }
   .back-side-0 {
     right: 0px;
