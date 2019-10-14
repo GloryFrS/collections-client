@@ -7,7 +7,7 @@ const BackSides = (props) => {
     items.push(props.children(i));
   }
 
-  return <div className='cards-back-sides'>{items}</div>;
+  return <div className='cards-back-sides stack'>{items}</div>;
 };
 
 export default BackSides;

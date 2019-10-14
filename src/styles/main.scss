@@ -2,8 +2,8 @@
 
 body {
   --header_background: #0A111B;
-  --background_page: #0A111B;
-  --background_content: #0A111B;
+  --background_page: #192233;
+  --background_content: #192233;
 }
 
 .rang-gold {
@@ -15,4 +15,6 @@ body {
 .rang-blue {
   background: linear-gradient($blue-gradient);
 }
-
+.rang-none {
+  background: #757575;
+}

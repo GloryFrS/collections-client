@@ -3,7 +3,6 @@ import { View } from '@vkontakte/vkui/';
 import Home from './panels/Home';
 import '@vkontakte/vkui/dist/vkui.css';
 import './styles/main.scss';
-import './style/style.scss';
 
 class App extends React.Component {
   constructor(props) {
