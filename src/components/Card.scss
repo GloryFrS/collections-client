@@ -1,0 +1,324 @@
+@import '../styles/vars';
+
+body {
+  overflow: hidden;
+}
+.btn {
+  margin-bottom: .5em!important;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  min-height: 60vh;
+  &:before {
+    display: block;
+    position: absolute;
+    content: "";
+    background-image: url(../img/bg-polygon.png);
+    background-repeat: no-repeat;
+    width: 272px;
+    height: 335px;
+    left: -83px;
+    right: 0;
+    top: 2em;
+    margin: auto;
+    @media screen and (max-width: 320px) {
+      background-size: 200px;
+      left: -26px;  
+    } 
+  }
+  .card-label {
+    position: absolute;
+    z-index: 201;
+    top: 18em;
+    padding: 10px;
+    text-align: center;
+    width: 255px;
+    border-radius: 10px;
+    @media screen and (max-width: 320px) {
+      width: 255px; 
+    }
+    p {
+      color: #fff;
+      margin: 0;
+      margin-bottom: 5px;
+      &:nth-child(1) {
+        font-weight: bold;
+      }
+    }
+  }
+  .card-label {
+    &.rang-silver {
+      p {
+        color: #494949;
+      }
+    }
+  }
+  .card-points {
+    position: absolute;
+    background: $red-label;
+    border-radius: 15px;
+    color: #fff;
+    top: 4em;
+    padding: 5px 15px;
+    z-index: 999;
+  }
+}
+
+.r-hex-rang, .r-hex-black {
+  overflow: hidden;
+  display: inline-block;
+  margin: 1.3em auto;
+  position: absolute;
+  width: 344px;
+  top: 44px;
+  height: 297px;
+  transform: rotate(-30deg) skewX(30deg);
+  border-radius: 0.5em;
+  z-index: 5;
+  @media screen and (max-width: 320px) {
+    width: 255px;
+    height: 220px
+  }  
+}
+
+.r-hex-rang {
+  width: 357px;
+  margin: 0.9em auto;
+  height: 310px;
+  @media screen and (max-width: 320px) {
+    width: 268px;
+    height: 234px;
+  }
+}
+
+.r-hex {
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  margin: 4.7em 0;
+  width: 20em;
+  height: 17.32em;
+  transform: rotate(-30deg) skewX(30deg);
+  border-radius: 0.5em;
+  z-index: 5;
+  &:before {
+    display: block;
+    overflow: hidden;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+  }
+  @media screen and (max-width: 320px) {
+    width: 227px;
+    height: 200px;
+  }
+}
+
+.r-hex-inner {
+  @include hexStyle;
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+  opacity: 1;
+  transition: opacity 0.75s;
+  cursor: pointer;
+}
+
+.r-hex-inner-border {
+  @include hexStyle;
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+  background: black;
+  content: "";
+
+  img {
+    margin-top: -1.5em;
+    height: 21em;
+    transform: skewX(-30deg) rotate(-90deg);
+    @media screen and (max-width: 320px) {
+      height: 15.5em;
+    }
+
+    &:before {
+      margin-top: -1.5em;
+      height: 20em;
+      transform: skewX(-30deg) rotate(-90deg);
+      line-height: 20em;
+      text-align: center;
+      content: "";
+    }
+  }
+}
+
+.r-hex-inner-rang {
+  @include hexStyle;
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+  background: gold;
+  content: "";
+
+  img {
+    margin-top: -1.5em;
+    height: 20em;
+    transform: skewX(-30deg) rotate(-90deg);
+
+    &:before {
+      margin-top: -1.5em;
+      height: 20em;
+      transform: skewX(-30deg) rotate(-90deg);
+      line-height: 20em;
+      text-align: center;
+      content: "";
+    }
+  }
+}
+
+.cards-back-sides {
+  position: absolute;
+  z-index: 0;
+  top: 18px;
+  right: -40px;
+  left: 0;
+  margin: auto;
+  transition: 1s;
+  width: 350px;
+  height: 350px;
+  @media screen and (max-width: 320px) {
+    top: 27px;
+    right: 0;
+    left: -48px;
+  }
+  img {
+    position: absolute;
+    right: 0;
+    @media screen and (max-width: 320px) {
+      width: 230px;
+    }
+  }
+  .back-side-0 {
+    right: 0px;
+    top: -5px;
+  }
+  .back-side-1 {
+    right: 5px;
+    top: 0px;
+  }
+  .back-side-2 {
+    right: 10px;
+    top: 5px;
+  }
+  .back-side-3 {
+    right: 15px;
+    top: 10px;
+  }
+}
+
+@keyframes flipScaleUpVer {
+  0% {
+    transform: scale(1) rotateY(0);
+    z-index: 10;
+  }
+  100% {
+    transform: scale(1.1) rotateY(90deg);
+    z-index: 100;
+  }
+}
+@keyframes flipScaleDownVer {
+  0% {
+    transform: scale(1.1) rotateY(90deg);
+    z-index: 100;
+
+  }
+  100% {
+    transform: scale(1) rotateY(180deg);
+    z-index: 200;
+
+  }
+}
+@keyframes chestAnim {
+  0% {
+    transform: scale(0);
+        opacity: 1;
+
+  }
+  20% {
+    transform: scale(2);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@keyframes destroyCard {
+  0% {
+    transform: rotateY(180deg);
+  }
+  10% {
+    transform: rotateY(270deg);
+  }
+  20% {
+    transform: rotateY(360deg);
+  }
+  30% {
+    transform: rotateY(450deg);
+  }
+  40% {
+    transform: rotateY(540deg);
+    opacity: 1;
+  }
+  50% {
+    transform: rotateY(630deg);
+  }
+  60% {
+    transform: rotateY(720deg);
+  }
+  70% {
+    transform: rotateY(810deg);
+  }
+  80% {
+    transform: rotateY(900deg);
+  }
+  90% {
+    transform: rotateY(990deg);
+  }
+  100% {
+    transform: rotateY(1080deg);
+    opacity: 0;
+  }
+}
+
+@keyframes takeCard {
+  0% {
+    transform: scale(1) rotateY(180deg) translateY(0);
+  }
+  100% {
+    transform: scale(0.8) rotateY(180deg) translateY(-600%);
+    opacity: 0;
+  }
+}
+.chest {
+  position: absolute;
+  display: inline-block;
+  width: 20em;
+  height: 17.32em;
+  left: calc(50% - 10em);
+  top: 12vh;
+  background: rgba(0,0,0,0);
+  background-size: cover;
+  z-index: 9;
+}
+.card {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  z-index: 9;
+}
+.stack { 
+  position: absolute;
+  transition: .5s;
+
+}

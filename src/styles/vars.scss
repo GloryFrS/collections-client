@@ -1,0 +1,29 @@
+$base-bg: #192233;
+$dark-bg: #0A111B;
+$red-label: #FF3347;
+$green-btn: #4BB34B;
+$blue-btn: #3259A4;
+$gold-gradient: rgba(253, 215, 72, 1), rgba(223, 150, 57, 1);
+$silver-gradient: rgba(229, 231, 236, 1), rgba(197, 201, 210, 1);
+$blue-gradient: rgba(32, 167, 216, 1), rgba(51, 60, 116, 1);
+
+@mixin linear-gradient($direction, $color-stops...) {
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+@mixin hexStyle{
+  display: block;
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  &:before {
+    display: block;
+    overflow: hidden;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+  }
+}
