@@ -58,8 +58,7 @@ class Card extends React.Component {
     const stack = document.querySelector('.stack');
     const card = document.querySelector('.card');
     const top = 18 + (16 / this.state.pack);
-    const translateStack = - 10 - (5 * this.state.pack); //15 10 5 0
-    console.log(translateStack);
+    const translateStack = - 10 - (5 * this.state.pack);
     const interval = setInterval(() => {
       const theCSSprop = window.getComputedStyle(stack, null)
         .getPropertyValue('right');
