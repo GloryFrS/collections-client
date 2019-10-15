@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Div } from '@vkontakte/vkui/';
+import Icon24Camera from '@vkontakte/icons/dist/24/camera';
 import backside from '../img/back-side.png';
 import frontCard from '../img/polygon.png';
 import backCard from '../img/chest-cover.jpg';
@@ -7,9 +8,7 @@ import chestCards from '../img/chest.svg';
 import BackSides from './items/BackSides';
 import coinIco from '../img/coin.png';
 import Stars from './items/Stars';
-import Icon24Camera from '@vkontakte/icons/dist/24/camera';
 import '../components/Card.scss';
-
 
 class Card extends React.Component {
   constructor(props) {
@@ -23,6 +22,7 @@ class Card extends React.Component {
       rotate: false,
     };
   };
+
   componentDidMount() {
     const card = document.querySelector('.card');
     const chest = document.querySelector('.chest');
@@ -72,7 +72,6 @@ class Card extends React.Component {
     
     stack.style.right = `${translateStack}px`;
     stack.style.top = `${top}px`;
-    
   }
 
   openCard = () => {

@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Panel, PanelHeader, Group, Cell, Avatar } from '@vkontakte/vkui/';
+import { 
+  Panel, 
+  PanelHeader, 
+  Group, 
+  Cell, 
+  Avatar 
+} from '@vkontakte/vkui/';
 import Card from '../components/Card';
 import img from '../img/polygon.png';
 
