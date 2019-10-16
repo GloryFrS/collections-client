@@ -77,7 +77,7 @@ class Card extends React.Component {
         .getPropertyValue('right');
 
         if (theCSSprop === `${translateStack}px`) {
-          card.style.display = 'flex';
+          card.style.opacity = '1';
           this.setState({checkLast:false});
           clearInterval(interval);
         }
@@ -123,7 +123,7 @@ class Card extends React.Component {
         .getPropertyValue('opacity');
 
       if (theCSSprop === '0') {
-        card.style.display = 'none';
+        card.style.opacity = '0';
         card.style.animation = '';
         this.setState({ img: this.state.bImg.src, pack: this.state.pack - 1,open: false });
         this.pullCard();
@@ -145,7 +145,7 @@ class Card extends React.Component {
         .getPropertyValue('opacity');
       if (theCSSprop === '0') {
         card.style.animation = '';
-        card.style.display = 'none';
+        card.style.opacity = '0';
         this.setState({ img: this.state.bImg.src, pack: this.state.pack - 1,open: false, checkLast: true });
         this.pullCard();
         clearInterval(interval);

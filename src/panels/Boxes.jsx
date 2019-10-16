@@ -26,7 +26,7 @@ class Home extends React.Component {
       title: 'Гарри Поттер',
       collection: 'Лего',
       img,
-      rang: 2,
+      rang: 0,
       packSize: 0
     }
     this.handleOpen = this.handleOpen.bind(this);
@@ -53,11 +53,11 @@ class Home extends React.Component {
       <View activePanel={this.state.activePanel}>
         <Panel id={id}>
           <PanelHeader >Боксы</PanelHeader>
-          <Group>
+          
             <div className='scroller-container'>
               <Card data={cardData} go={this.go} />
             </div>
-          </Group>
+          
         </Panel>  
         <Panel id='box-list'>
           <PanelHeader>Боксы</PanelHeader>
