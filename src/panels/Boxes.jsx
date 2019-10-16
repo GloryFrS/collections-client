@@ -7,8 +7,7 @@ import {
   Group, 
   Cell, 
   Avatar, 
-  Button,
-  PanelHeaderBack 
+  Button
 } from '@vkontakte/vkui/';
 import Card from '../components/Card';
 import coinIco from '../img/coin.png';
@@ -53,7 +52,7 @@ class Home extends React.Component {
     return (
       <View activePanel={this.state.activePanel}>
         <Panel id={id}>
-          <PanelHeader left={<PanelHeaderBack onClick={() => this.go('box-list')} />}>Боксы</PanelHeader>
+          <PanelHeader >Боксы</PanelHeader>
           <Group>
             <div className='scroller-container'>
               <Card data={cardData} go={this.go} />

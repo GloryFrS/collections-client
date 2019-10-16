@@ -7,6 +7,10 @@ import backCard from '../img/chest-cover.jpg';
 import BackSides from './items/BackSides';
 import coinIco from '../img/coin.png';
 import Stars from './items/Stars';
+import legendBack from '../img/b-rang-legend.png';
+import rareBack from '../img/b-rang-simple.png';
+import basicBack from '../img/b-rang-basic.png';
+import noneRang from '../img/b-rang-none.png'
 import '../components/Card.scss';
 
 class Card extends React.Component {
@@ -19,7 +23,7 @@ class Card extends React.Component {
       open: false,
       pack: 4,
       rotate: false,
-      ttt: false,
+      checkLast: false,
     };
   };
 
@@ -74,11 +78,12 @@ class Card extends React.Component {
 
         if (theCSSprop === `${translateStack}px`) {
           card.style.display = 'flex';
-          this.setState({ttt:false});
+          this.setState({checkLast:false});
           clearInterval(interval);
         }
+        
     }, 100)
-    
+
     stack.style.right = `${translateStack}px`;
     stack.style.top = `${top}px`;
   }
@@ -141,7 +146,7 @@ class Card extends React.Component {
       if (theCSSprop === '0') {
         card.style.animation = '';
         card.style.display = 'none';
-        this.setState({ img: this.state.bImg.src, pack: this.state.pack - 1,open: false, ttt: true });
+        this.setState({ img: this.state.bImg.src, pack: this.state.pack - 1,open: false, checkLast: true });
         this.pullCard();
         clearInterval(interval);
       }
@@ -151,12 +156,12 @@ class Card extends React.Component {
   }
 
   render() {
-    console.log('asd');
-    
     const { pack, img, open, rotate } = this.state;
     const { title, collection, rang } = this.props.data;
-    const rangs = ['rang-silver', 'rang-blue', 'rang-gold'];
-    const rangColor = open && !rotate ? rangs[rang] : 'rang-none';
+    const rangsTitle = ['rang-silver', 'rang-blue', 'rang-gold'];
+    const rangsImgs = [basicBack, rareBack, legendBack];
+    const rangsImgActiv = open && !rotate ? rangsImgs[rang] : noneRang;
+    const rangColor = open && !rotate ? rangsTitle[rang] : 'rang-none';
     const rangStars = rang === 2 ? <Stars/> : '';
     const rangTitle = ['Обычный', 'Эпичный', 'Легендарный'];
     const btnContainer = open && !rotate ? (
@@ -167,7 +172,7 @@ class Card extends React.Component {
       </Div>
     ) : '';
     const count = open && !rotate ? <span className="card-points">x2</span> : '';
-    const label = open && !rotate ? (<div className={`card-label ${rangColor}`}>
+    const label = open && !rotate ? (<div className={`card-label ${rangColor}`} onClick={ open ? rotate ? () =>{} : this.takeCard : this.openCard }>
       <p>{`${rangTitle[rang]} ${title}`}</p>
       <p>Коллекция: {collection}</p>
       {rangStars}
@@ -178,17 +183,8 @@ class Card extends React.Component {
         <div className='card-container'>
           <div className="chest"/>
           {count}
-          <div className="card" onClick={ open ? rotate ? () =>{} : this.takeCard : this.openCard}>
-            <div className='r-hex-rang'>
-              <div className='r-hex-inner'>
-                <div className={`r-hex-inner-rang ${rangColor}`}></div>
-              </div>
-            </div>
-            <div className='r-hex-black'>
-              <div className='r-hex-inner'>
-                <div className='r-hex-inner-border'></div>
-              </div>
-            </div>
+          <div className="card" onClick={ open ? rotate ? () =>{} : this.takeCard : this.openCard }>
+            <img className='rang-background' src={rangsImgActiv} alt="" />
             <div className='r-hex'>
               <div className='r-hex-inner'>
                 <div className='r-hex-inner-border'>
@@ -198,7 +194,8 @@ class Card extends React.Component {
             </div>
           </div>
           {label}
-          <BackSides numTimes={this.state.ttt ? pack + 1 : pack}>
+          
+          <BackSides numTimes={this.state.checkLast ? pack + 1 : pack}>
             {(index) => <img key={index} className={`back-side-${index}`} src={backside} alt="" />}
           </BackSides>
         </div>

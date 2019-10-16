@@ -1,7 +1,7 @@
 .stars {
-  position: absolute;
-  right: 0px;
-  top: 20px;
+  position: relative;
+  right: -12px;
+  top: -30px;
   .star1 {
     position: absolute;
     animation: starMove1 3s infinite linear both, stop 3s infinite ease-in both;
