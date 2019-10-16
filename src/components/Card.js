@@ -4,7 +4,6 @@ import Icon24Camera from '@vkontakte/icons/dist/24/camera';
 import backside from '../img/back-side.png';
 import frontCard from '../img/polygon.png';
 import backCard from '../img/chest-cover.jpg';
-import chestCards from '../img/chest.svg';
 import BackSides from './items/BackSides';
 import coinIco from '../img/coin.png';
 import Stars from './items/Stars';
@@ -20,10 +19,12 @@ class Card extends React.Component {
       open: false,
       pack: 4,
       rotate: false,
+      ttt: false,
     };
   };
 
   componentDidMount() {
+    this.setState({ pack: this.props.data.packSize - 1 });
     const card = document.querySelector('.card');
     const chest = document.querySelector('.chest');
     const stack = document.querySelector('.stack');
@@ -34,7 +35,7 @@ class Card extends React.Component {
     card.setAttribute('style', 'opacity: 0; display: none; transition: opacity .5s ; ');
     stack.setAttribute('style', `opacity: 0; display: none; right: ${translateStack}px `);
     chestImg.onload = () => {
-      chest.setAttribute('style', `animation:chestAnim 2s ease-out both; background: url(${chestImg.src}) center no-repeat`);
+      chest.setAttribute('style', `animation:chestAnim 2s ease-out both; background: url(${chestImg.src}) center no-repeat; background-size: contain;`);
       backImg.onload = () => {
         const interval = setInterval(() => {
           const theCSSprop = window.getComputedStyle(chest, null)
@@ -47,11 +48,19 @@ class Card extends React.Component {
             this.setState({ img: backImg.src, bImg: backImg });
             clearInterval(interval);
           }
-        }, 100)
+        }, 10)
       };
       backImg.src = backCard;
     }
-    chestImg.src = chestCards;
+    chestImg.src = this.props.data.chest;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState !== this.state) {
+      if (this.state.pack < 0) {
+        this.props.go('box-list');
+      }
+    }
   }
 
   pullCard = () => {
@@ -63,10 +72,11 @@ class Card extends React.Component {
       const theCSSprop = window.getComputedStyle(stack, null)
         .getPropertyValue('right');
 
-      if (theCSSprop === `${translateStack}px`) {
-        card.style.display = 'flex';
-        clearInterval(interval);
-      }
+        if (theCSSprop === `${translateStack}px`) {
+          card.style.display = 'flex';
+          this.setState({ttt:false});
+          clearInterval(interval);
+        }
     }, 100)
     
     stack.style.right = `${translateStack}px`;
@@ -92,7 +102,7 @@ class Card extends React.Component {
           this.setState({ rotate: false });
           clearInterval(interval);
         }
-      }, 100)
+      }, 10)
     }
     frontImg.src = frontCard;
   }
@@ -114,7 +124,7 @@ class Card extends React.Component {
         this.pullCard();
         clearInterval(interval);
       }
-    }, 100)
+    }, 10)
 
     card.style.animation = 'destroyCard .5s linear both';
   }
@@ -131,16 +141,18 @@ class Card extends React.Component {
       if (theCSSprop === '0') {
         card.style.animation = '';
         card.style.display = 'none';
-        this.setState({ img: this.state.bImg.src, pack: this.state.pack - 1,open: false });
+        this.setState({ img: this.state.bImg.src, pack: this.state.pack - 1,open: false, ttt: true });
         this.pullCard();
         clearInterval(interval);
       }
-    }, 100)
+    }, 10)
     
-    card.style.animation = 'takeCard 250ms ease-in both';
+    card.style.animation = 'takeCard 350ms ease-in both';
   }
 
   render() {
+    console.log('asd');
+    
     const { pack, img, open, rotate } = this.state;
     const { title, collection, rang } = this.props.data;
     const rangs = ['rang-silver', 'rang-blue', 'rang-gold'];
@@ -186,7 +198,7 @@ class Card extends React.Component {
             </div>
           </div>
           {label}
-          <BackSides numTimes={pack}>
+          <BackSides numTimes={this.state.ttt ? pack + 1 : pack}>
             {(index) => <img key={index} className={`back-side-${index}`} src={backside} alt="" />}
           </BackSides>
         </div>

@@ -1,0 +1,26 @@
+.container-boxes {
+  display: flex;
+  justify-content: center;
+  .container-boxes_content {
+    padding: 20px;
+  }
+  .container-boxes_img {
+    padding: 20px 0;
+    height: 100%;
+    img {
+      width: 8em;
+    }
+  }
+  .boxes-title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .boxes-description {
+    color: #ACAFB1;
+    font-size: 12px;
+  }
+}
+#box-list {
+  overflow: scroll;
+}

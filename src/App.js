@@ -3,7 +3,7 @@ import { View, TabbarItem, Tabbar, Panel, PanelHeader, Epic } from '@vkontakte/v
 import boxIco from './img/box-ico.png';
 import collectionIco from './img/collection-ico.png';
 import ratingIco from './img/rating-ico.png';
-import Boxes from './panels/Boxes';
+import Boxes from './panels/Boxes.jsx';
 import '@vkontakte/vkui/dist/vkui.css';
 import './styles/main.scss';
 

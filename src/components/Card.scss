@@ -241,15 +241,15 @@ body {
 
   }
   20% {
-    transform: scale(2);
+    transform: scale(1);
     opacity: 1;
   }
   80% {
-    transform: scale(2);
+    transform: scale(1);
     opacity: 1;
   }
   100% {
-    transform: scale(2);
+    transform: scale(1);
     opacity: 0;
   }
 }
@@ -296,7 +296,7 @@ body {
     transform: scale(1) rotateY(180deg) translateY(0);
   }
   100% {
-    transform: scale(0.8) rotateY(180deg) translateY(-600%);
+    transform: scale(0.6) rotateY(180deg) translateY(-300%);
     opacity: 0;
   }
 }
