@@ -166,7 +166,7 @@ class Card extends React.Component {
     const rangTitle = ['Обычный', 'Эпичный', 'Легендарный'];
     const btnContainer = open && !rotate ? (
       <Div>
-        <Button className='btn' onClick={this.destroyCard} after={<img src={coinIco} alt=''/>} size='xl' level="destructive">Разбить дубликат и получить +30</Button>
+        <Button className='btn' onClick={this.destroyCard} after={<img className='coin-ico' src={coinIco} alt=''/>} size='xl' level="destructive">Разбить дубликат и получить +30</Button>
         <Button className='btn' before={<Icon24Camera/>} size="xl">Поделиться в истории</Button>
         <Button className='btn' size="xl">Подарить другу</Button>
       </Div>

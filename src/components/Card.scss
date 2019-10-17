@@ -342,8 +342,10 @@ body {
 
 .cash-coints p {
   margin: 0;
+  display: flex;
+  flex-wrap: wrap;
 }
-
-// .scroller-container {
-//   overflow-x: hidden;
-// }
+.coin-ico {
+  width: 14px;
+  height: 14px;
+}

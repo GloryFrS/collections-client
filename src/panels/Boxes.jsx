@@ -69,7 +69,7 @@ class Home extends React.Component {
               >
                 <div className='cash-coints'>
                   {fetchedUser.first_name}
-                  <p>40 <img src={coinIco} alt=''/> +1 (43:24)</p>
+                  <p>40 <img className='coin-ico' src={coinIco} alt=''/> +1 (43:24)</p>
                 </div>
               </Cell>
             </Group>}
@@ -81,7 +81,7 @@ class Home extends React.Component {
               <div className='container-boxes_content'>
                 <p className='boxes-title'>Обычный бокс</p>
                 <p className='boxes-description'>Содержит случайную карточку</p>
-                <Button onClick={e => this.handleOpen(e,basicBox,1)} size="l">Открыть за 10 <img src={coinIco} alt=''/> </Button>
+                <Button onClick={e => this.handleOpen(e,basicBox,1)} size="l">Открыть за 10 <img className='coin-ico' src={coinIco} alt=''/> </Button>
               </div>
             </div>
           </Group>
@@ -93,7 +93,7 @@ class Home extends React.Component {
               <div className='container-boxes_content'>
                 <p className='boxes-title'>Обычный бокс</p>
                 <p className='boxes-description'>Содержит случайную карточку</p>
-                <Button onClick={e => this.handleOpen(e,simpleBox,3)} size="l">Открыть за 30 <img src={coinIco} alt=''/> </Button>
+                <Button onClick={e => this.handleOpen(e,simpleBox,3)} size="l">Открыть за 30 <img className='coin-ico' src={coinIco} alt=''/> </Button>
               </div>
             </div>
           </Group>
@@ -105,7 +105,7 @@ class Home extends React.Component {
               <div className='container-boxes_content'>
                 <p className='boxes-title'>Обычный бокс</p>
                 <p className='boxes-description'>Содержит случайную карточку</p>
-                <Button onClick={e => this.handleOpen(e,legenBox,5)} size="l">Открыть за 50 <img src={coinIco} alt=''/> </Button>
+                <Button onClick={e => this.handleOpen(e,legenBox,5)} size="l">Открыть за 50 <img className='coin-ico' src={coinIco} alt=''/> </Button>
               </div>
             </div>
           </Group>
