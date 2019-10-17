@@ -17,9 +17,9 @@ class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      img: null,
-      bImg: null,
-      fImg: null,
+      img: null, //текущая картинка
+      bImg: null, //сундук
+      fImg: null, //гарипотер
       open: false,
       pack: 4,
       rotate: false,
@@ -78,7 +78,7 @@ class Card extends React.Component {
         .getPropertyValue('right');
 
         if (theCSSprop === `${translateStack}px`) {
-          card.style.transition = 'opacity 0s';
+          card.style.transition = 'opacity 1s';
           card.style.opacity = '1';
           this.setState({checkLast:false});
           clearInterval(interval);
@@ -93,21 +93,20 @@ class Card extends React.Component {
   openCard = () => {
     const card = document.querySelector('.card');
     const frontImg = new Image();
-
     this.setState({ open: true, rotate: true });
     frontImg.onload = () => {
-      this.setState({ cardAnimation: 'flipScaleUpVer 3500ms ease-in both' });
+      this.setState({ cardAnimation: 'flipScaleUpVer 350ms ease-in both' });
       const interval = setInterval(() => {
         const theCSSprop = window.getComputedStyle(card, null)
           .getPropertyValue('z-index');
         if (theCSSprop === '100') {
-          this.setState({ img: frontImg.src, fImg: frontImg, cardAnimation: 'flipScaleDownVer 3500ms ease-out both'});
+          this.setState({ img: frontImg.src, fImg: frontImg, cardAnimation: 'flipScaleDownVer 350ms ease-out both'});
         }
         if (theCSSprop === '200') {
           this.setState({ rotate: false });
           clearInterval(interval);
         }
-      }, 1000)
+      }, 10)
     }
     frontImg.src = frontCard;
   }
