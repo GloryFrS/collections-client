@@ -24,6 +24,7 @@ class Card extends React.Component {
       pack: 4,
       rotate: false,
       checkLast: false,
+      cardAnimation: ''
     };
   };
 
@@ -77,6 +78,7 @@ class Card extends React.Component {
         .getPropertyValue('right');
 
         if (theCSSprop === `${translateStack}px`) {
+          card.style.transition = 'opacity 0s';
           card.style.opacity = '1';
           this.setState({checkLast:false});
           clearInterval(interval);
@@ -94,20 +96,18 @@ class Card extends React.Component {
 
     this.setState({ open: true, rotate: true });
     frontImg.onload = () => {
-      card.style.animation = 'flipScaleUpVer 350ms ease-in both';
+      this.setState({ cardAnimation: 'flipScaleUpVer 3500ms ease-in both' });
       const interval = setInterval(() => {
         const theCSSprop = window.getComputedStyle(card, null)
           .getPropertyValue('z-index');
         if (theCSSprop === '100') {
-          this.setState({ img: frontImg.src, fImg: frontImg });
-          card.style.animation = 'flipScaleDownVer 350ms ease-out both';
-          // clearInterval(interval);
+          this.setState({ img: frontImg.src, fImg: frontImg, cardAnimation: 'flipScaleDownVer 3500ms ease-out both'});
         }
         if (theCSSprop === '200') {
           this.setState({ rotate: false });
           clearInterval(interval);
         }
-      }, 10)
+      }, 1000)
     }
     frontImg.src = frontCard;
   }
@@ -125,7 +125,7 @@ class Card extends React.Component {
       if (theCSSprop === '0') {
         card.style.opacity = '0';
         card.style.animation = '';
-        this.setState({ img: this.state.bImg.src, pack: this.state.pack - 1,open: false });
+        this.setState({ img: this.state.bImg.src, pack: this.state.pack - 1, open: false });
         this.pullCard();
         clearInterval(interval);
       }
@@ -144,8 +144,10 @@ class Card extends React.Component {
       const theCSSprop = window.getComputedStyle(card, null)
         .getPropertyValue('opacity');
       if (theCSSprop === '0') {
-        card.style.animation = '';
         card.style.opacity = '0';
+        card.style.transition = 'opacity 0s';
+        card.style.animation = '';
+        
         this.setState({ img: this.state.bImg.src, pack: this.state.pack - 1,open: false, checkLast: true });
         this.pullCard();
         clearInterval(interval);
@@ -156,7 +158,7 @@ class Card extends React.Component {
   }
 
   render() {
-    const { pack, img, open, rotate } = this.state;
+    const { pack, img, open, rotate, cardAnimation } = this.state;
     const { title, collection, rang } = this.props.data;
     const rangsTitle = ['rang-silver', 'rang-blue', 'rang-gold'];
     const rangsImgs = [basicBack, rareBack, legendBack];
@@ -171,6 +173,9 @@ class Card extends React.Component {
         <Button className='btn' size="xl">Подарить другу</Button>
       </Div>
     ) : '';
+    const styleCard = {
+      animation: cardAnimation
+    }
     const count = open && !rotate ? <span className="card-points">x2</span> : '';
     const label = open && !rotate ? (<div className={`card-label ${rangColor}`} onClick={ open ? rotate ? () =>{} : this.takeCard : this.openCard }>
       <p>{`${rangTitle[rang]} ${title}`}</p>
@@ -183,7 +188,7 @@ class Card extends React.Component {
         <div className='card-container'>
           <div className="chest"/>
           {count}
-          <div className="card" onClick={ open ? rotate ? () =>{} : this.takeCard : this.openCard }>
+          <div className="card" style={styleCard} onClick={ open ? rotate ? () =>{} : this.takeCard : this.openCard }>
             <img className='rang-background' src={rangsImgActiv} alt="" />
             <div className='r-hex'>
               <div className='r-hex-inner'>

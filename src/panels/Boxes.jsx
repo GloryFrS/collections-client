@@ -69,7 +69,7 @@ class Home extends React.Component {
               >
                 <div className='cash-coints'>
                   {fetchedUser.first_name}
-                  <p>40 <img className='coin-ico' src={coinIco} alt=''/> +1 (43:24)</p>
+                  <p> <span>40</span>  <img className='coin-ico' src={coinIco} alt=''/> +1 (43:24)</p>
                 </div>
               </Cell>
             </Group>}
