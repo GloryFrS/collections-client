@@ -4,6 +4,7 @@ import boxIco from './img/box-ico.png';
 import collectionIco from './img/collection-ico.png';
 import ratingIco from './img/rating-ico.png';
 import Boxes from './panels/Boxes.jsx';
+import Collections from './panels/Collections';
 import '@vkontakte/vkui/dist/vkui.css';
 import './styles/main.scss';
 
@@ -11,7 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeStory: 'box',
+      activeStory: 'collections',
       fetchedUser: { 
           "id": 2314852, 
           "first_name": "Ирина", 
@@ -76,9 +77,7 @@ class App extends React.Component {
           </Panel>
         </View>
         <View id="collections" activePanel="collections">
-          <Panel id="collections">
-            <PanelHeader>Коллекции</PanelHeader>
-          </Panel>
+          <Collections id={"collections"}/>
         </View>
       </Epic>
       

@@ -1,0 +1,12 @@
+.collection-container {
+  display: flex;
+  .collection-item {
+    flex-shrink: 0;
+    width: 80;
+    height: 94;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12;
+  }
+}
