@@ -14,6 +14,7 @@
       right: 14px;
       z-index: 99;
       top: 180px;
+      position: absolute;
     }
     .card-title {
       margin-top: 0px;
@@ -98,7 +99,8 @@
     .stars {
       right: 14px;
       z-index: 99;
-      top: 111px
+      top: 111px;
+      position: absolute;
     }
   }
 }
