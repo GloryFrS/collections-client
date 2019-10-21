@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TabbarItem, Tabbar, Epic } from '@vkontakte/vkui/';
 import boxIco from './img/box-ico.png';
 import ratingIco from './img/rating-ico.png';
-import Boxes from './panels/Boxes.jsx';
+import Boxes from './panels/Boxes';
 import Collections from './panels/Collections';
 import '@vkontakte/vkui/dist/vkui.css';
 import './styles/main.scss';
@@ -11,7 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeStory: 'collections',
+      activeStory: 'box',
       fetchedUser: { 
           "id": 2314852, 
           "first_name": "Ирина", 

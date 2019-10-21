@@ -19,7 +19,7 @@ class Collections extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activePanel: 'full-collection',
+      activePanel: 'collections',
       data: [
         {
           title: 'Гарри Поттер',
@@ -109,7 +109,6 @@ class Collections extends Component {
             </HorizontalScroll>
           </Group>
         </Panel>  
-
         <Panel id='full-collection'>
           <PanelHeader 
             left={<HeaderButton onClick={() => this.setState({ activePanel: 'collections' })}><Icon28ChevronBack  /></HeaderButton>}>

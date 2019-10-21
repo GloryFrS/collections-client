@@ -2,7 +2,7 @@ import React from 'react';
 import legendBack from '../../img/b-rang-legend.png';
 import rareBack from '../../img/b-rang-simple.png';
 import basicBack from '../../img/b-rang-basic.png';
-import Stars from '../items/Stars';
+import Stars from './Stars';
 
 const CardItem = (props) => {
   const rangs = [basicBack, rareBack, legendBack];
