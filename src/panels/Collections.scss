@@ -1,12 +1,104 @@
+#collections {
+  overflow-x: scroll;
+}
 .collection-container {
   display: flex;
   .collection-item {
     flex-shrink: 0;
-    width: 80;
-    height: 94;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 12;
+    position: relative;
+    margin: 0 1em;
+    .stars {
+      right: 14px;
+      z-index: 99;
+      top: 180px;
+    }
+    .card-title {
+      margin-top: 0px;
+      color: #909499;
+    }
+    .card-title-rang {
+      margin: -15px 0 0 0;
+    }
+    .rang-background {
+      width: 9.6em;
+      @media screen and (max-width: 320px) {
+        top: 1em;
+      }
+    }
+    .r-hex {
+      margin: 3.7em 0;
+      width: 9em;
+      height: 8em;
+      @media screen and (max-width: 320px) {
+        margin: 2.5em 0;
+      }
+      .r-hex-inner-border img {
+        margin-top: -1.5em;
+        height: 11em;
+      }
+    }
+  }
+}
+.in-collection-counter {
+  padding: 0 14px;
+}
+.collection-title {
+  font-weight: bolder;
+  color: #fff;
+  font-size: 17px;
+  text-transform: none;
+}
+.rang-background {
+  position: absolute;
+  top: 2.2em;
+  width: 19.6em;
+  @media screen and (max-width: 320px) {
+    top: 3em;
+    width: 14em;  
+  }
+}
+.show-btn {
+  color: #3259A4;
+  font-size: 17px;
+}
+.collections-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .collection-item {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin: 0 .5em;
+    .card-title {
+      margin: 0;
+    }
+    .card-title-rang {
+      margin: -15px 0 0 0;
+    }
+    .rang-background {
+      top: 2.2em;
+      width: 5.6em;
+    }
+    .r-hex {
+      margin: 2.7em 0;
+      width: 6em;
+      height: 5.32em;
+      z-index: 5;
+      img {
+        margin-top: -1.5em;
+        height: 8em;
+      }
+    }
+    .stars {
+      right: 14px;
+      z-index: 99;
+      top: 111px
+    }
   }
 }

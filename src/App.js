@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, TabbarItem, Tabbar, Panel, PanelHeader, Epic } from '@vkontakte/vkui/';
+import { View, TabbarItem, Tabbar, Epic } from '@vkontakte/vkui/';
 import boxIco from './img/box-ico.png';
-import collectionIco from './img/collection-ico.png';
 import ratingIco from './img/rating-ico.png';
 import Boxes from './panels/Boxes.jsx';
 import Collections from './panels/Collections';
@@ -56,12 +55,6 @@ class App extends React.Component {
           ><img src={boxIco} alt=''/></TabbarItem>
           <TabbarItem
             onClick={this.onStoryChange}
-            selected={this.state.activeStory === 'rating'}
-            data-story="rating"
-            text="Рейтинг"
-          ><img src={collectionIco} alt=''/></TabbarItem>
-          <TabbarItem
-            onClick={this.onStoryChange}
             selected={activeStory === 'collections'}
             data-story="collections"
             text="Коллекции"
@@ -71,14 +64,7 @@ class App extends React.Component {
         <View id="box" activePanel="box">
           <Boxes id='box' fetchedUser={fetchedUser} go={this.onStoryChange}/>
         </View>
-        <View id="rating" activePanel="rating">
-          <Panel id="rating">
-            <PanelHeader>Рейтинг</PanelHeader>
-          </Panel>
-        </View>
-        <View id="collections" activePanel="collections">
-          <Collections id={"collections"}/>
-        </View>
+        <Collections id={"collections"}/>
       </Epic>
       
     );
