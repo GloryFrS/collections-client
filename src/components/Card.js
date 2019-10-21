@@ -7,19 +7,24 @@ import backCard from '../img/chest-cover.jpg';
 import BackSides from './items/BackSides';
 import coinIco from '../img/coin.png';
 import Stars from './items/Stars';
+import legendBack from '../img/b-rang-legend.png';
+import rareBack from '../img/b-rang-simple.png';
+import basicBack from '../img/b-rang-basic.png';
+import noneRang from '../img/b-rang-none.png'
 import '../components/Card.scss';
 
 class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      img: null,
-      bImg: null,
-      fImg: null,
+      img: null, //текущая картинка
+      bImg: null, //сундук
+      fImg: null, //гарипотер
       open: false,
       pack: 4,
       rotate: false,
-      ttt: false,
+      checkLast: false,
+      cardAnimation: ''
     };
   };
 
@@ -73,12 +78,14 @@ class Card extends React.Component {
         .getPropertyValue('right');
 
         if (theCSSprop === `${translateStack}px`) {
-          card.style.display = 'flex';
-          this.setState({ttt:false});
+          card.style.transition = 'opacity 1s';
+          card.style.opacity = '1';
+          this.setState({checkLast:false});
           clearInterval(interval);
         }
+        
     }, 100)
-    
+
     stack.style.right = `${translateStack}px`;
     stack.style.top = `${top}px`;
   }
@@ -86,17 +93,14 @@ class Card extends React.Component {
   openCard = () => {
     const card = document.querySelector('.card');
     const frontImg = new Image();
-
     this.setState({ open: true, rotate: true });
     frontImg.onload = () => {
-      card.style.animation = 'flipScaleUpVer 350ms ease-in both';
+      this.setState({ cardAnimation: 'flipScaleUpVer 350ms ease-in both' });
       const interval = setInterval(() => {
         const theCSSprop = window.getComputedStyle(card, null)
           .getPropertyValue('z-index');
         if (theCSSprop === '100') {
-          this.setState({ img: frontImg.src, fImg: frontImg });
-          card.style.animation = 'flipScaleDownVer 350ms ease-out both';
-          // clearInterval(interval);
+          this.setState({ img: frontImg.src, fImg: frontImg, cardAnimation: 'flipScaleDownVer 350ms ease-out both'});
         }
         if (theCSSprop === '200') {
           this.setState({ rotate: false });
@@ -118,9 +122,9 @@ class Card extends React.Component {
         .getPropertyValue('opacity');
 
       if (theCSSprop === '0') {
-        card.style.display = 'none';
+        card.style.opacity = '0';
         card.style.animation = '';
-        this.setState({ img: this.state.bImg.src, pack: this.state.pack - 1,open: false });
+        this.setState({ img: this.state.bImg.src, pack: this.state.pack - 1, open: false });
         this.pullCard();
         clearInterval(interval);
       }
@@ -139,9 +143,11 @@ class Card extends React.Component {
       const theCSSprop = window.getComputedStyle(card, null)
         .getPropertyValue('opacity');
       if (theCSSprop === '0') {
+        card.style.opacity = '0';
+        card.style.transition = 'opacity 0s';
         card.style.animation = '';
-        card.style.display = 'none';
-        this.setState({ img: this.state.bImg.src, pack: this.state.pack - 1,open: false, ttt: true });
+        
+        this.setState({ img: this.state.bImg.src, pack: this.state.pack - 1,open: false, checkLast: true });
         this.pullCard();
         clearInterval(interval);
       }
@@ -151,23 +157,26 @@ class Card extends React.Component {
   }
 
   render() {
-    console.log('asd');
-    
-    const { pack, img, open, rotate } = this.state;
+    const { pack, img, open, rotate, cardAnimation } = this.state;
     const { title, collection, rang } = this.props.data;
-    const rangs = ['rang-silver', 'rang-blue', 'rang-gold'];
-    const rangColor = open && !rotate ? rangs[rang] : 'rang-none';
+    const rangsTitle = ['rang-silver', 'rang-blue', 'rang-gold'];
+    const rangsImgs = [basicBack, rareBack, legendBack];
+    const rangsImgActiv = open && !rotate ? rangsImgs[rang] : noneRang;
+    const rangColor = open && !rotate ? rangsTitle[rang] : 'rang-none';
     const rangStars = rang === 2 ? <Stars/> : '';
     const rangTitle = ['Обычный', 'Эпичный', 'Легендарный'];
     const btnContainer = open && !rotate ? (
       <Div>
-        <Button className='btn' onClick={this.destroyCard} after={<img src={coinIco} alt=''/>} size='xl' level="destructive">Разбить дубликат и получить +30</Button>
+        <Button className='btn' onClick={this.destroyCard} after={<img className='coin-ico' src={coinIco} alt=''/>} size='xl' level="destructive">Разбить дубликат и получить +30</Button>
         <Button className='btn' before={<Icon24Camera/>} size="xl">Поделиться в истории</Button>
         <Button className='btn' size="xl">Подарить другу</Button>
       </Div>
     ) : '';
+    const styleCard = {
+      animation: cardAnimation
+    }
     const count = open && !rotate ? <span className="card-points">x2</span> : '';
-    const label = open && !rotate ? (<div className={`card-label ${rangColor}`}>
+    const label = open && !rotate ? (<div className={`card-label ${rangColor}`} onClick={ open ? rotate ? () =>{} : this.takeCard : this.openCard }>
       <p>{`${rangTitle[rang]} ${title}`}</p>
       <p>Коллекция: {collection}</p>
       {rangStars}
@@ -178,17 +187,8 @@ class Card extends React.Component {
         <div className='card-container'>
           <div className="chest"/>
           {count}
-          <div className="card" onClick={ open ? rotate ? () =>{} : this.takeCard : this.openCard}>
-            <div className='r-hex-rang'>
-              <div className='r-hex-inner'>
-                <div className={`r-hex-inner-rang ${rangColor}`}></div>
-              </div>
-            </div>
-            <div className='r-hex-black'>
-              <div className='r-hex-inner'>
-                <div className='r-hex-inner-border'></div>
-              </div>
-            </div>
+          <div className="card" style={styleCard} onClick={ open ? rotate ? () =>{} : this.takeCard : this.openCard }>
+            <img className='rang-background' src={rangsImgActiv} alt="" />
             <div className='r-hex'>
               <div className='r-hex-inner'>
                 <div className='r-hex-inner-border'>
@@ -198,7 +198,8 @@ class Card extends React.Component {
             </div>
           </div>
           {label}
-          <BackSides numTimes={this.state.ttt ? pack + 1 : pack}>
+          
+          <BackSides numTimes={this.state.checkLast ? pack + 1 : pack}>
             {(index) => <img key={index} className={`back-side-${index}`} src={backside} alt="" />}
           </BackSides>
         </div>

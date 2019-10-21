@@ -52,13 +52,13 @@ class App extends React.Component {
             selected={activeStory === 'box'}
             data-story="box"
             text="Боксы"
-          ><img src={boxIco} alt=''/></TabbarItem>
+          ><img src={boxIco} className='tabbar-ico' alt=''/></TabbarItem>
           <TabbarItem
             onClick={this.onStoryChange}
             selected={activeStory === 'collections'}
             data-story="collections"
             text="Коллекции"
-          ><img src={ratingIco} alt=''/></TabbarItem>
+          ><img src={collectionIco} className='tabbar-ico' alt=''/></TabbarItem>
         </Tabbar>
       }>
         <View id="box" activePanel="box">

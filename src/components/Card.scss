@@ -12,6 +12,7 @@ body {
   justify-content: center;
   position: relative;
   min-height: 60vh;
+  flex-wrap: wrap;
   &:before {
     display: block;
     position: absolute;
@@ -30,12 +31,14 @@ body {
     } 
   }
   .card-label {
-    position: absolute;
+    // position: absolute;
     z-index: 201;
-    top: 18em;
+    // top: 18em;
     padding: 10px;
     text-align: center;
     width: 255px;
+    height: 51px;
+    margin-top: -9em;
     border-radius: 10px;
     @media screen and (max-width: 320px) {
       width: 255px; 
@@ -58,12 +61,16 @@ body {
   }
   .card-points {
     position: absolute;
-    background: $red-label;
+    background: #FF3347;
     border-radius: 15px;
     color: #fff;
     top: 4em;
     padding: 5px 15px;
     z-index: 999;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 19px;
   }
 }
 
@@ -312,10 +319,20 @@ body {
   z-index: 9;
 }
 .card {
-  position: absolute;
+  position: relative;
   display: flex;
   justify-content: center;
   z-index: 9;
+  .rang-background {
+    position: absolute;
+    top: 2.2em;
+    width: 19.6em;
+    @media screen and (max-width: 320px) {
+      top: 3em;
+      width: 14em;  
+    }
+    
+  }
 }
 .stack { 
   position: absolute;
@@ -325,4 +342,10 @@ body {
 
 .cash-coints p {
   margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.coin-ico {
+  width: 14px;
+  height: 14px;
 }

@@ -7,8 +7,7 @@ import {
   Group, 
   Cell, 
   Avatar, 
-  Button,
-  PanelHeaderBack 
+  Button
 } from '@vkontakte/vkui/';
 import Card from '../components/Card';
 import coinIco from '../img/coin.png';
@@ -27,7 +26,7 @@ class Home extends React.Component {
       title: 'Гарри Поттер',
       collection: 'Лего',
       img,
-      rang: 2,
+      rang: 0,
       packSize: 0
     }
     this.handleOpen = this.handleOpen.bind(this);
@@ -53,12 +52,12 @@ class Home extends React.Component {
     return (
       <View activePanel={this.state.activePanel}>
         <Panel id={id}>
-          <PanelHeader left={<PanelHeaderBack onClick={() => this.go('box-list')} />}>Боксы</PanelHeader>
-          <Group>
+          <PanelHeader >Боксы</PanelHeader>
+          
             <div className='scroller-container'>
               <Card data={cardData} go={this.go} />
             </div>
-          </Group>
+          
         </Panel>  
         <Panel id='box-list'>
           <PanelHeader>Боксы</PanelHeader>
@@ -70,7 +69,7 @@ class Home extends React.Component {
               >
                 <div className='cash-coints'>
                   {fetchedUser.first_name}
-                  <p>40 <img src={coinIco} alt=''/> +1 (43:24)</p>
+                  <p> <span>40</span>  <img className='coin-ico' src={coinIco} alt=''/> +1 (43:24)</p>
                 </div>
               </Cell>
             </Group>}
@@ -82,7 +81,7 @@ class Home extends React.Component {
               <div className='container-boxes_content'>
                 <p className='boxes-title'>Обычный бокс</p>
                 <p className='boxes-description'>Содержит случайную карточку</p>
-                <Button onClick={e => this.handleOpen(e,basicBox,1)} size="l">Открыть за 10 <img src={coinIco} alt=''/> </Button>
+                <Button onClick={e => this.handleOpen(e,basicBox,1)} size="l">Открыть за 10 <img className='coin-ico' src={coinIco} alt=''/> </Button>
               </div>
             </div>
           </Group>
@@ -94,7 +93,7 @@ class Home extends React.Component {
               <div className='container-boxes_content'>
                 <p className='boxes-title'>Обычный бокс</p>
                 <p className='boxes-description'>Содержит случайную карточку</p>
-                <Button onClick={e => this.handleOpen(e,simpleBox,3)} size="l">Открыть за 30 <img src={coinIco} alt=''/> </Button>
+                <Button onClick={e => this.handleOpen(e,simpleBox,3)} size="l">Открыть за 30 <img className='coin-ico' src={coinIco} alt=''/> </Button>
               </div>
             </div>
           </Group>
@@ -106,7 +105,7 @@ class Home extends React.Component {
               <div className='container-boxes_content'>
                 <p className='boxes-title'>Обычный бокс</p>
                 <p className='boxes-description'>Содержит случайную карточку</p>
-                <Button onClick={e => this.handleOpen(e,legenBox,5)} size="l">Открыть за 50 <img src={coinIco} alt=''/> </Button>
+                <Button onClick={e => this.handleOpen(e,legenBox,5)} size="l">Открыть за 50 <img className='coin-ico' src={coinIco} alt=''/> </Button>
               </div>
             </div>
           </Group>

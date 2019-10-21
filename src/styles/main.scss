@@ -21,3 +21,14 @@ body {
 .rang-none {
   background: #757575;
 }
+
+.tabbar-ico {
+  width: 20px;
+  height: 20px;
+}
+.Group--ios::before {
+  height: 0!important;
+} 
+.Group--ios::after {
+  height: 1!important;
+}
