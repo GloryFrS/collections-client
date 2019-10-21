@@ -13,7 +13,6 @@ import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import CardItem from '../components/items/CardItem';
 import img from '../img/polygon.png';
 import img2 from '../img/polygon2.png';
-
 import './Collections.scss';
 
 class Collections extends Component {
@@ -130,12 +129,12 @@ class Collections extends Component {
             left={<HeaderButton onClick={() => this.setState({ activePanel: 'full-collection' })}><Icon28ChevronBack  /></HeaderButton>}>
               Lego
           </PanelHeader>
-            <Div>
-              <Header level="secondary"  aside={<span>8/12</span>}>
-                <div className='collection-title'>Коллекции "Lego"</div>  
-              </Header>
-            </Div>
-          </Panel>
+          <Div>
+            <Header level="secondary"  aside={<span>8/12</span>}>
+              <div className='collection-title'>Lego</div>  
+            </Header>
+          </Div>
+        </Panel>
       </View>
     );
   }
