@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TabbarItem, Tabbar, Epic } from '@vkontakte/vkui/';
 import boxIco from './img/box-ico.png';
-import collectionIco from './img/rating-ico.png';
+import collectionIco from './img/collection-ico.png';
 import Boxes from './panels/Boxes';
 import Collections from './panels/Collections';
 import '@vkontakte/vkui/dist/vkui.css';

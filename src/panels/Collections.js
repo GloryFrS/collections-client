@@ -31,7 +31,7 @@ class Collections extends Component {
           title: 'Lego boy',
           collection: 'Лего',
           img: img2,
-          rang: 0
+          rang: 1
         },
         {
           title: 'Гарри Поттер',

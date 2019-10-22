@@ -135,7 +135,7 @@ body {
 .r-hex-inner-border {
   @include hexStyle;
   transform: skewX(-30deg) rotate(60deg) skewX(30deg);
-  background: black;
+  background: transparent;
   content: "";
 
   img {
