@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, TabbarItem, Tabbar, Epic } from '@vkontakte/vkui/';
+import { TabbarItem, Tabbar, Epic } from '@vkontakte/vkui/';
 import boxIco from './img/box-ico.png';
 import collectionIco from './img/collection-ico.png';
-import Boxes from './panels/Boxes';
-import Collections from './panels/Collections';
+import Boxes from './tabs/Boxes';
+import Collections from './tabs/Collections';
 import '@vkontakte/vkui/dist/vkui.css';
 import './styles/main.scss';
 
@@ -11,7 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeStory: 'box',
+      activeStory: 'collections',
       fetchedUser: { 
           "id": 2314852, 
           "first_name": "Ирина", 
@@ -43,7 +43,7 @@ class App extends React.Component {
   render() {
     const { activeStory, fetchedUser } = this.state;
 
-    return ( 
+    return (
       <Epic activeStory={activeStory} tabbar={
         <Tabbar>
           <TabbarItem
@@ -60,9 +60,7 @@ class App extends React.Component {
           ><img src={collectionIco} className='tabbar-ico' alt=''/></TabbarItem>
         </Tabbar>
       }>
-        <View id="box" activePanel="box">
-          <Boxes id='box' fetchedUser={fetchedUser} go={this.onStoryChange}/>
-        </View>
+        <Boxes id='box' fetchedUser={fetchedUser} go={this.onStoryChange}/>
         <Collections id={"collections"}/>
       </Epic>
       

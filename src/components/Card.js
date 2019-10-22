@@ -120,7 +120,6 @@ class Card extends React.Component {
     const interval = setInterval(() => {
       const theCSSprop = window.getComputedStyle(card, null)
         .getPropertyValue('opacity');
-
       if (theCSSprop === '0') {
         card.style.opacity = '0';
         card.style.animation = '';

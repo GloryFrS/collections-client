@@ -17,7 +17,7 @@ import simpleBox from '../img/simple-box.png';
 import legenBox from '../img/legend-box.png';
 import './Boxes.scss';
 
-class Home extends React.Component {
+class Boxes extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,11 +53,7 @@ class Home extends React.Component {
       <View activePanel={this.state.activePanel}>
         <Panel id={id}>
           <PanelHeader >Боксы</PanelHeader>
-          
-            <div className='scroller-container'>
-              <Card data={cardData} go={this.go} />
-            </div>
-          
+          <Card data={cardData} go={this.go} />
         </Panel>  
         <Panel id='box-list'>
           <PanelHeader>Боксы</PanelHeader>
@@ -75,7 +71,7 @@ class Home extends React.Component {
             </Group>}
           <Group>
             <div className='container-boxes'>
-              <div className='container-boxes_img'>
+              <div className='container-boxes_img' onClick={e => this.handleOpen(e,basicBox,1)}>
                 <img src={basicBox} alt=""/>
               </div>
               <div className='container-boxes_content'>
@@ -90,7 +86,7 @@ class Home extends React.Component {
               <div className='container-boxes_img'>
                 <img src={simpleBox} alt=""/>
               </div>
-              <div className='container-boxes_content'>
+              <div className='container-boxes_content' onClick={e => this.handleOpen(e,simpleBox,3)}>
                 <p className='boxes-title'>Обычный бокс</p>
                 <p className='boxes-description'>Содержит случайную карточку</p>
                 <Button onClick={e => this.handleOpen(e,simpleBox,3)} size="l">Открыть за 30 <img className='coin-ico' src={coinIco} alt=''/> </Button>
@@ -99,7 +95,7 @@ class Home extends React.Component {
           </Group>
           <Group>
             <div className='container-boxes'>
-              <div className='container-boxes_img'>
+              <div className='container-boxes_img' onClick={e => this.handleOpen(e,legenBox,5)}>
                 <img src={legenBox} alt=""/>
               </div>
               <div className='container-boxes_content'>
@@ -115,7 +111,7 @@ class Home extends React.Component {
   }
 }
 
-Home.propTypes = {
+Boxes.propTypes = {
   id: PropTypes.string.isRequired,
   go: PropTypes.func.isRequired,
   fetchedUser: PropTypes.shape({
@@ -128,4 +124,4 @@ Home.propTypes = {
   }),
 };
 
-export default Home;
+export default Boxes;
