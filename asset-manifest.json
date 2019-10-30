@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/collections-client/static/css/main.44f136d9.chunk.css",
+    "main.js": "/collections-client/static/js/main.497107a0.chunk.js",
+    "main.js.map": "/collections-client/static/js/main.497107a0.chunk.js.map",
+    "runtime-main.js": "/collections-client/static/js/runtime-main.af69ed61.js",
+    "runtime-main.js.map": "/collections-client/static/js/runtime-main.af69ed61.js.map",
+    "static/css/2.4e89ce74.chunk.css": "/collections-client/static/css/2.4e89ce74.chunk.css",
+    "static/js/2.8c53f6d6.chunk.js": "/collections-client/static/js/2.8c53f6d6.chunk.js",
+    "static/js/2.8c53f6d6.chunk.js.map": "/collections-client/static/js/2.8c53f6d6.chunk.js.map",
+    "index.html": "/collections-client/index.html",
+    "precache-manifest.062eb051ededbb3f39b7d5fc7d03cbca.js": "/collections-client/precache-manifest.062eb051ededbb3f39b7d5fc7d03cbca.js",
+    "service-worker.js": "/collections-client/service-worker.js",
+    "static/css/2.4e89ce74.chunk.css.map": "/collections-client/static/css/2.4e89ce74.chunk.css.map",
+    "static/css/main.44f136d9.chunk.css.map": "/collections-client/static/css/main.44f136d9.chunk.css.map",
+    "static/media/b-rang-basic.png": "/collections-client/static/media/b-rang-basic.b9020a67.png",
+    "static/media/b-rang-legend.png": "/collections-client/static/media/b-rang-legend.19880951.png",
+    "static/media/b-rang-none.png": "/collections-client/static/media/b-rang-none.d60fb267.png",
+    "static/media/b-rang-simple.png": "/collections-client/static/media/b-rang-simple.6bfa230a.png",
+    "static/media/back-side.png": "/collections-client/static/media/back-side.ecf0b970.png",
+    "static/media/basic-box.png": "/collections-client/static/media/basic-box.51516e53.png",
+    "static/media/chest-cover.png": "/collections-client/static/media/chest-cover.433c8e3d.png",
+    "static/media/legend-box.png": "/collections-client/static/media/legend-box.e4eb26b8.png",
+    "static/media/polygon.png": "/collections-client/static/media/polygon.360d5d56.png",
+    "static/media/polygon2.png": "/collections-client/static/media/polygon2.d0e5d1e6.png",
+    "static/media/simple-box.png": "/collections-client/static/media/simple-box.191d58b9.png",
+    "static/media/star.svg": "/collections-client/static/media/star.cc61bd6b.svg"
+  }
+}
